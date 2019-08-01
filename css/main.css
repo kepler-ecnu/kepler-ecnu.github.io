@@ -902,7 +902,7 @@ pre .javascript .function {
   right: 30px;
   text-align: center;
   transition-property: bottom;
-  width: 24px;
+  width: initial;
   z-index: 1050;
   transition-delay: 0s;
   transition-duration: 0.2s;
@@ -1339,6 +1339,47 @@ pre .javascript .function {
 .rtl.post-title {
   font-family: UKIJ Ekran;
 }
+#reward-container {
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  width: 90%;
+}
+#reward-button {
+  background: #f44336;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: normal;
+  line-height: 2;
+  margin: 0;
+  outline: 0;
+  padding: 0 15px;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  vertical-align: text-top;
+}
+#reward-button span:hover {
+  background: #f7877f;
+}
+#qr {
+  padding-top: 20px;
+}
+#qr a {
+  border: 0;
+}
+#qr img {
+  display: inline-block;
+  margin: 0.8em 2em 0 2em;
+  max-width: 100%;
+  width: 180px;
+}
+#qr p {
+  text-align: center;
+}
 .sidebar {
   background: #222;
   bottom: 0;
@@ -1431,7 +1472,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #bff561;
+  background: #c1ffec;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1680,8 +1721,11 @@ pre .javascript .function {
 .footer-inner {
   text-align: center;
 }
+#animate {
+  animation: iconAnimate 1.33s ease-in-out infinite;
+}
 .with-love {
-  color: #808080;
+  color: #FF0033;
   display: inline-block;
   margin: 0 5px;
 }
@@ -1744,6 +1788,112 @@ pre .javascript .function {
   50%, 70% {
     transform: scale(1.1);
   }
+}
+.local-search-pop-overlay {
+  background-color: rgba(0,0,0,0.3);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2080;
+}
+.local-search-popup {
+  background: #fff;
+  border-radius: 5px;
+  color: #333;
+  display: none;
+  height: 80%;
+  left: 50%;
+  margin-left: -350px;
+  padding: 0;
+  position: fixed;
+  top: 10%;
+  width: 700px;
+  z-index: 9999;
+}
+@media (max-width: 767px) {
+  .local-search-popup {
+    border-radius: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+.local-search-popup ul.search-result-list {
+  margin: 0 5px;
+  padding: 0;
+}
+.local-search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.local-search-popup a.search-result-title {
+  font-weight: bold;
+}
+.local-search-popup .search-keyword {
+  border-bottom: 1px dashed #f00;
+  color: #f00;
+  font-weight: bold;
+}
+.local-search-popup .local-search-header {
+  background: #f5f5f5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 36px;
+  padding: 5px;
+}
+.local-search-popup #local-search-result {
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+  position: relative;
+}
+.local-search-popup .local-search-input-wrapper {
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 5px;
+  position: absolute;
+  width: calc(100% - 90px);
+}
+.local-search-popup .local-search-input-wrapper input {
+  background: transparent;
+  border: none;
+  display: block;
+  height: 20px;
+  outline: none;
+  padding: 8px 0;
+  vertical-align: middle;
+  width: 100%;
+}
+.local-search-popup .search-icon,
+.local-search-popup .popup-btn-close {
+  color: #999;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 18px;
+}
+.local-search-popup .search-icon {
+  float: left;
+}
+.local-search-popup .popup-btn-close {
+  border-left: 1px solid #eee;
+  cursor: pointer;
+  float: right;
+}
+.local-search-popup #no-result {
+  color: #ccc;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .page-archive .posts-collapse {
   margin-left: 55px;
@@ -2142,7 +2292,7 @@ ul.breadcrumb li+li:last-child {
   float: right;
   min-height: 700px;
   padding: 40px;
-  width: calc(100% - 252px);
+  width: calc(100% - 250px);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
@@ -2373,7 +2523,7 @@ ul.breadcrumb li+li:last-child {
 }
 .sidebar-inner.affix {
   position: fixed;
-  top: 12px;
+  top: 10px;
 }
 .sidebar-inner.affix-bottom {
   position: absolute;
@@ -2500,14 +2650,14 @@ ul.breadcrumb li+li:last-child {
 #posts > article + article .post-block {
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 12px;
+  margin-top: 10px;
 }
 .comments {
   background: #fff;
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin: auto;
-  margin-top: 12px;
+  margin-top: 10px;
   padding: 40px;
 }
 .posts-expand {
@@ -2530,7 +2680,7 @@ ul.breadcrumb li+li:last-child {
   border-radius: initial;
   border-top: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   padding: 10px 0 10px;
 }
 .pagination .prev,
@@ -2551,7 +2701,7 @@ ul.breadcrumb li+li:last-child {
 }
 .sub-menu+ #content > #posts .post-block {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 12px;
+  margin-top: 10px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .sub-menu+ #content > #posts .post-block {
@@ -2604,7 +2754,7 @@ ul.breadcrumb li+li:last-child {
     margin: initial;
   }
   .posts-expand .post-button {
-    margin: 12px 0;
+    margin: 10px 0;
   }
   .posts-expand img {
     padding: initial !important;
@@ -2613,14 +2763,14 @@ ul.breadcrumb li+li:last-child {
     border-radius: initial;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
     min-height: auto;
-    padding: 12px;
+    padding: 10px;
   }
   #posts > article + article .post-block {
     margin-top: 8px;
   }
   .comments {
     margin-top: 8px;
-    padding: 10 12px;
+    padding: 10 10px;
   }
   .pagination {
     margin: 8px 0 0;
