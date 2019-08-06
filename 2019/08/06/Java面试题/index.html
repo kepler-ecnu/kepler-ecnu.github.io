@@ -71,7 +71,7 @@
 <meta property="og:site_name" content="The real world">
 <meta property="og:description" content="Java基础知识点简述什么是跨平台由于各种操作系统所支持的指令集不是完全一致的，所以在操作系统上加个虚拟机来提供统一接口，屏蔽系统之间的差异。 Java有几种基本数据类型有八种基本数据类型:    数据类型 字节 默认值    byte 1 0   char 4 ‘\u0000’   boolean 1 false   float 4 0.0f   double 8 0.0d   int 4 0">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-06T14:18:37.230Z">
+<meta property="og:updated_time" content="2019-08-06T15:02:11.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java知识点整理(不间断更新)">
 <meta name="twitter:description" content="Java基础知识点简述什么是跨平台由于各种操作系统所支持的指令集不是完全一致的，所以在操作系统上加个虚拟机来提供统一接口，屏蔽系统之间的差异。 Java有几种基本数据类型有八种基本数据类型:    数据类型 字节 默认值    byte 1 0   char 4 ‘\u0000’   boolean 1 false   float 4 0.0f   double 8 0.0d   int 4 0">
@@ -284,7 +284,7 @@
                 
               
 
-              <time title="创建时间：2019-08-06 13:20:21 / 修改时间：22:18:37" itemprop="dateCreated datePublished" datetime="2019-08-06T13:20:21+08:00">2019-08-06</time>
+              <time title="创建时间：2019-08-06 13:20:21 / 修改时间：23:02:11" itemprop="dateCreated datePublished" datetime="2019-08-06T13:20:21+08:00">2019-08-06</time>
             </span>
           
             
@@ -315,7 +315,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">9.1k</span>
+              <span title="本文字数">9.9k</span>
             </span>
           
             <span class="post-meta-item">
@@ -325,7 +325,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">8 分钟</span>
+              <span title="阅读时长">9 分钟</span>
             </span>
           
 
@@ -615,6 +615,50 @@
 <li>Map下：HashMap线程不同步；TreeMap线程同步；</li>
 <li>Collection系列和Map系列：Map是对Colleciton的补充，两者没什么关系。</li>
 </ul>
+<h3 id="List、Set、Map之间的区别"><a href="#List、Set、Map之间的区别" class="headerlink" title="List、Set、Map之间的区别"></a>List、Set、Map之间的区别</h3><p>List、Set、Map之间的区别主要体现在两个方面：元素是否有序、是否允许元素重复<br>三者间的区别，如表所示：</p>
+
+	<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>元素有序</th>
+    <th>允许元素重复</th>
+  </tr>
+  <tr>
+    <td colspan="2">List</td>
+    <td>是</td>
+    <td>是</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Set</td>
+    <td>AbstractSet</td>
+    <td rowspan="2">否</td>
+    <td rowspan="3">否</td>
+  </tr>
+  <tr>
+    <td>HashSet</td>
+  </tr>
+  <tr>
+    <td>TreeSet</td>
+    <td>是（用二叉树排序）</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Map</td>
+    <td>AbstractMap</td>
+    <td rowspan="2">否</td>
+    <td rowspan="3">key值必须唯一<br>value值可重复</td>
+  </tr>
+  <tr>
+    <td>HashMap</td>
+  </tr>
+  <tr>
+    <td>TreeMap</td>
+    <td>是（用二叉树排序）</td>
+  </tr>
+</table>
+
+
+<h3 id="HashMap、HashTable和ConcurrentHashMap区别"><a href="#HashMap、HashTable和ConcurrentHashMap区别" class="headerlink" title="HashMap、HashTable和ConcurrentHashMap区别"></a>HashMap、HashTable和ConcurrentHashMap区别</h3><p>相同点：<br>    1. HashMap和HashTable都实现了Map接口<br>    2. 都可以存储key-value数据<br>不同点：<br>    1. HashMap可以把null作为key或者value,HashTable不可以<br>    2. HashMap线程不安全，效率高，HashTable线程安全，效率低<br>    3. HashMap迭代器(Iterator)是fail-fast迭代器，而HashTable的enumerator迭代器不是fail-fast的<br>    什么是fail-fast?<br>      就是最快的时间能把错误抛出而不是让程序执行<br>    4. Hashtable 是保留类不建议使用，推荐在单线程环境下使用 HashMap 替代，如果需要多线程使用则用 ConcurrentHashMap 替代。</p>
 
     </div>
 
@@ -738,8 +782,6 @@
         
           
         
-          
-        
         <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
         </a>
@@ -831,7 +873,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础知识点"><span class="nav-number">1.</span> <span class="nav-text">Java基础知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述什么是跨平台"><span class="nav-number">1.1.</span> <span class="nav-text">简述什么是跨平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java有几种基本数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">Java有几种基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象特征"><span class="nav-number">1.3.</span> <span class="nav-text">面向对象特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象六大原则"><span class="nav-number">1.4.</span> <span class="nav-text">面向对象六大原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String属于基础的数据类型吗"><span class="nav-number">1.5.</span> <span class="nav-text">String属于基础的数据类型吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要有包装类型"><span class="nav-number">1.6.</span> <span class="nav-text">为什么要有包装类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动装箱和自动拆箱"><span class="nav-number">1.7.</span> <span class="nav-text">自动装箱和自动拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-str-“i”-与-String-str-new-String-“i”-一样么"><span class="nav-number">1.8.</span> <span class="nav-text">String str = “i” 与 String str = new String(“i”)一样么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何将字符串反转"><span class="nav-number">1.9.</span> <span class="nav-text">如何将字符串反转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-类常用方法"><span class="nav-number">1.10.</span> <span class="nav-text">String 类常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和-equals-区别"><span class="nav-number">1.11.</span> <span class="nav-text">== 和 equals 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String、StringBuffer和StringBuilder区别"><span class="nav-number">1.12.</span> <span class="nav-text">String、StringBuffer和StringBuilder区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个对象的-hashCode-相同，则equals-也一定为true，对吗？"><span class="nav-number">1.13.</span> <span class="nav-text">两个对象的 hashCode()相同，则equals()也一定为true，对吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个对象值相同-x-equals-y-true-，Hashcode是否一定相同"><span class="nav-number">1.14.</span> <span class="nav-text">两个对象值相同(x.equals(y)==true)，Hashcode是否一定相同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候需要重写equals方法和hashCode方法"><span class="nav-number">1.15.</span> <span class="nav-text">什么时候需要重写equals方法和hashCode方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-和-LinkdList-区别"><span class="nav-number">1.16.</span> <span class="nav-text">ArrayList 和 LinkdList 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final在Java中有什么作用"><span class="nav-number">1.17.</span> <span class="nav-text">final在Java中有什么作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中-Math-round-1-5-等于多少？Math-round-2-5-等于多少？"><span class="nav-number">1.18.</span> <span class="nav-text">Java中 Math.round(-1.5)等于多少？Math.round(-2.5)等于多少？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类必须要有抽象方法吗？"><span class="nav-number">1.19.</span> <span class="nav-text">抽象类必须要有抽象方法吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#普通类和抽象类有哪些区别"><span class="nav-number">1.20.</span> <span class="nav-text">普通类和抽象类有哪些区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类能使用final修饰吗"><span class="nav-number">1.21.</span> <span class="nav-text">抽象类能使用final修饰吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口和抽象类的区别"><span class="nav-number">1.22.</span> <span class="nav-text">接口和抽象类的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中IO流分为几种"><span class="nav-number">1.23.</span> <span class="nav-text">Java中IO流分为几种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BIO、NIO和AIO区别"><span class="nav-number">1.24.</span> <span class="nav-text">BIO、NIO和AIO区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files常用方法有哪些"><span class="nav-number">1.25.</span> <span class="nav-text">Files常用方法有哪些</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器"><span class="nav-number">2.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器都有哪些"><span class="nav-number">2.1.</span> <span class="nav-text">Java容器都有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述Java中的集合"><span class="nav-number">2.2.</span> <span class="nav-text">简述Java中的集合</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础知识点"><span class="nav-number">1.</span> <span class="nav-text">Java基础知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述什么是跨平台"><span class="nav-number">1.1.</span> <span class="nav-text">简述什么是跨平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java有几种基本数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">Java有几种基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象特征"><span class="nav-number">1.3.</span> <span class="nav-text">面向对象特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象六大原则"><span class="nav-number">1.4.</span> <span class="nav-text">面向对象六大原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String属于基础的数据类型吗"><span class="nav-number">1.5.</span> <span class="nav-text">String属于基础的数据类型吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要有包装类型"><span class="nav-number">1.6.</span> <span class="nav-text">为什么要有包装类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动装箱和自动拆箱"><span class="nav-number">1.7.</span> <span class="nav-text">自动装箱和自动拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-str-“i”-与-String-str-new-String-“i”-一样么"><span class="nav-number">1.8.</span> <span class="nav-text">String str = “i” 与 String str = new String(“i”)一样么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何将字符串反转"><span class="nav-number">1.9.</span> <span class="nav-text">如何将字符串反转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-类常用方法"><span class="nav-number">1.10.</span> <span class="nav-text">String 类常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和-equals-区别"><span class="nav-number">1.11.</span> <span class="nav-text">== 和 equals 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String、StringBuffer和StringBuilder区别"><span class="nav-number">1.12.</span> <span class="nav-text">String、StringBuffer和StringBuilder区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个对象的-hashCode-相同，则equals-也一定为true，对吗？"><span class="nav-number">1.13.</span> <span class="nav-text">两个对象的 hashCode()相同，则equals()也一定为true，对吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个对象值相同-x-equals-y-true-，Hashcode是否一定相同"><span class="nav-number">1.14.</span> <span class="nav-text">两个对象值相同(x.equals(y)==true)，Hashcode是否一定相同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候需要重写equals方法和hashCode方法"><span class="nav-number">1.15.</span> <span class="nav-text">什么时候需要重写equals方法和hashCode方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-和-LinkdList-区别"><span class="nav-number">1.16.</span> <span class="nav-text">ArrayList 和 LinkdList 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final在Java中有什么作用"><span class="nav-number">1.17.</span> <span class="nav-text">final在Java中有什么作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中-Math-round-1-5-等于多少？Math-round-2-5-等于多少？"><span class="nav-number">1.18.</span> <span class="nav-text">Java中 Math.round(-1.5)等于多少？Math.round(-2.5)等于多少？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类必须要有抽象方法吗？"><span class="nav-number">1.19.</span> <span class="nav-text">抽象类必须要有抽象方法吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#普通类和抽象类有哪些区别"><span class="nav-number">1.20.</span> <span class="nav-text">普通类和抽象类有哪些区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类能使用final修饰吗"><span class="nav-number">1.21.</span> <span class="nav-text">抽象类能使用final修饰吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口和抽象类的区别"><span class="nav-number">1.22.</span> <span class="nav-text">接口和抽象类的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中IO流分为几种"><span class="nav-number">1.23.</span> <span class="nav-text">Java中IO流分为几种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BIO、NIO和AIO区别"><span class="nav-number">1.24.</span> <span class="nav-text">BIO、NIO和AIO区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files常用方法有哪些"><span class="nav-number">1.25.</span> <span class="nav-text">Files常用方法有哪些</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器"><span class="nav-number">2.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器都有哪些"><span class="nav-number">2.1.</span> <span class="nav-text">Java容器都有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述Java中的集合"><span class="nav-number">2.2.</span> <span class="nav-text">简述Java中的集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List、Set、Map之间的区别"><span class="nav-number">2.3.</span> <span class="nav-text">List、Set、Map之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap、HashTable和ConcurrentHashMap区别"><span class="nav-number">2.4.</span> <span class="nav-text">HashMap、HashTable和ConcurrentHashMap区别</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -858,7 +900,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">16k</span>
+    <span title="站点总字数">17k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
