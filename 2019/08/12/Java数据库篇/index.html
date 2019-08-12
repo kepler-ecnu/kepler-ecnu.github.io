@@ -71,7 +71,7 @@
 <meta property="og:site_name" content="The real world">
 <meta property="og:description" content="主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表的外键">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-12T14:06:55.656Z">
+<meta property="og:updated_time" content="2019-08-12T14:40:16.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java数据库篇">
 <meta name="twitter:description" content="主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表的外键">
@@ -284,7 +284,7 @@
                 
               
 
-              <time title="创建时间：2019-08-12 12:47:03 / 修改时间：22:06:55" itemprop="dateCreated datePublished" datetime="2019-08-12T12:47:03+08:00">2019-08-12</time>
+              <time title="创建时间：2019-08-12 12:47:03 / 修改时间：22:40:16" itemprop="dateCreated datePublished" datetime="2019-08-12T12:47:03+08:00">2019-08-12</time>
             </span>
           
             
@@ -315,7 +315,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">6.2k</span>
+              <span title="本文字数">8.5k</span>
             </span>
           
             <span class="post-meta-item">
@@ -325,7 +325,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">6 分钟</span>
+              <span title="阅读时长">8 分钟</span>
             </span>
           
 
@@ -374,9 +374,59 @@
 </ol>
 <ol start="3">
 <li>可重复读（Repeatable Read）<br> 这是MySQL的默认事务隔离级别<br> 它确保同一事务的多个实例在并发读取数据时，看到同样的数据行<br> 此级别可能出现的问题–幻读（Phantom Read），当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行<br> InnoDB和Falcon存储引擎通过多版本并发控制(MVCC，Multiversion Concurrency Control)机制解决了该问题</li>
-<li>可串行化（Serializable）<br> 这是最高的隔离级别<br> 它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它在每个读的数据行上加上共享锁。<br> 可能导致大量的超时现象和锁竞争</li>
+<li>可串行化（Serializable）<br> 这是最高的隔离级别<br> 它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它在每个读的数据行上加上共享锁。<br> 可能导致大量的超时现象和锁竞争<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读未提交</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>读已提交</td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>可重复读</td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>可串行化</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+</tbody></table>
+</li>
 </ol>
+<h2 id="事务运行的三种模式"><a href="#事务运行的三种模式" class="headerlink" title="事务运行的三种模式"></a>事务运行的三种模式</h2><ol>
+<li>自动提交事务<br> 每条单独的语句都是一个事务，每个语句都隐含一个commit</li>
+<li>显式事务<br> 以begin transaction 开始，以commit 或 rollback 结束。</li>
+<li>隐性事务<br> 在前一个事务完成时，新事务隐式启动，但每个事务仍以commit或rollback显示结束</li>
+</ol>
+<p>注意：<font color="#0099ff">隔离级别的设置只对当前链接有效</font>。对于使用MySQL命令窗口而言，一个窗口就相当于一个链接，当前窗口设置的隔离级别只对当前窗口中的事务有效；对于JDBC操作数据库来说，一个Connection对象相当于一个链接，而对于Connection对象设置的隔离级别只对该Connection对象有效，与其他链接Connection对象无关。</p>
+<p>事务通常以begin（start） transaction 开始，以commit 或 rollback 结束。<br>commit 表示提交，将事务中所有对数据库的更新写会到磁盘的物理数据库中，事务正常结束。<br>rollback表示回滚，即在事务运行的过程中发生了某种故障，事务不能继续进行，系统将事务中对数据库的所有以完成的操作全部撤消，滚回到事务开始的状态。</p>
 <h2 id="视图的作用，视图可以更改么"><a href="#视图的作用，视图可以更改么" class="headerlink" title="视图的作用，视图可以更改么"></a>视图的作用，视图可以更改么</h2><p>视图是虚拟的表，与包含数据的表不一样，视图只包含使用时动态检索数据的查询；不包含任何列或数据。使用视图可以简化复杂的sql操作，隐藏具体的细节，保护数据；视图创建后，可以使用与表相同的方式利用它们。<br>视图不能被索引，也不能有关联的触发器或默认值，如果视图本身内有order by 则对视图再次order by将被覆盖。<br>create view 视图名 as 查询语句;<br>对于某些视图比如未使用联结子查询分组聚集函数Distinct Union等，是可以对其更新的，对视图的更新将对基表进行更新；但是视图主要用于简化检索，保护数据，并不用于更新，而且大部分视图都不可以更新。</p>
+<h2 id="游标是什么"><a href="#游标是什么" class="headerlink" title="游标是什么"></a>游标是什么</h2><p>游标：是对查询出来的结果集作为一个单元来有效的处理。游标可以定在该单元中的特定行，从结果集的当前行检索一行或多行。可以对结果集当前行做修改。一般不使用游标，但是需要逐条处理数据的时候，游标显得十分重要。</p>
+<h2 id="视图的优缺点"><a href="#视图的优缺点" class="headerlink" title="视图的优缺点"></a>视图的优缺点</h2><p>优点：<br>    1. 对数据库的访问，因为视图可以有选择性的选取数据库里的一部分。<br>    2. 用户通过简单的查询可以从复杂查询中得到结果。<br>    3. 维护数据的独立性，视图可从多个表检索数据。<br>    4. 对于相同的数据可产生不同的视图。<br>缺点：查询视图时，必须把视图的查询转化成对基本表的查询，如果这个视图是由一个复杂的多表查询所定义，那么就无法更改数据</p>
+<h2 id="列举几种表连接方式-有什么区别"><a href="#列举几种表连接方式-有什么区别" class="headerlink" title="列举几种表连接方式,有什么区别"></a>列举几种表连接方式,有什么区别</h2><p>内连接、自连接、外连接（左、右、全）、交叉连接</p>
+<ul>
+<li>内连接：只有两个元素表相匹配的才能在结果集中显示。</li>
+<li>自连接：自连接(self join)是SQL语句中经常要用的连接方式，使用自连接可以将自身表的一个镜像当作另一个表来对待，从而能够得到一些特殊的数据。</li>
+<li>外连接：<br>  左外连接: 左边为驱动表，驱动表的数据全部显示，匹配表的不匹配的不会显示。<br>  右外连接: 右边为驱动表，驱动表的数据全部显示，匹配表的不匹配的不会显示。<br>  全外连接：连接的表中不匹配的数据全部会显示出来。</li>
+<li>交叉连接：笛卡尔效应，显示的结果是链接表数的乘积。</li>
+</ul>
 <h2 id="drop-delete与truncate的区别"><a href="#drop-delete与truncate的区别" class="headerlink" title="drop,delete与truncate的区别"></a>drop,delete与truncate的区别</h2><p>区别一：<br>根据sql语言分类来说，delete属于DML语言，也就是数据操作语言，而truncate属于DDL语言，也就是数据定义语言。</p>
 <p>区别二：<br>delete不仅可以删除表中的数据，还可以删除基于真实表创建的视图中的数据。truncate则只能删除表中的数据，不能作用于视图。</p>
 <p>区别三：<br>在数据库删除数据时，delete可以根据需要进行删除，也就是delete可以结合where条件进行精确的删除某一条数据，而truncate则不能支持where子句，如果作用于表，则是直接删除表所有数据。</p>
@@ -417,8 +467,18 @@
 <li>存储过程一般是作为一个独立的部分来执行（ EXECUTE 语句执行），而函数可以作为查询语句的一个部分来调用（SELECT调用），由于函数可以返回一个表对象，因此它可以在查询语句中位于FROM关键字的后面。 SQL语句中不可用存储过程，而可以使用函数。 </li>
 </ol>
 <p>当存储过程和函数被执行的时候，SQL Manager会到procedure cache中去取相应的查询语句，如果在procedure cache里没有相应的查询语句，SQL Manager就会对存储过程和函数进行编译。<br>Procedure cache中保存的是执行计划 (execution plan) ，当编译好之后就执行procedure cache中的execution plan，之后SQL SERVER会根据每个execution plan的实际情况来考虑是否要在cache中保存这个plan，评判的标准一个是这个execution plan可能被使用的频率；其次是生成这个plan的代价，也就是编译的耗时。保存在cache中的plan在下次执行时就不用再编译了。</p>
+<p>小结：触发器与存储过程非常相似，触发器也是SQL语句集，两者唯一的区别是触发器不能用EXECUTE语句调用，而是在用户执行Transact-SQL语句时自动触发（激活）执行。触发器是在一个修改了指定表中的数据时执行的存储过程。通常通过创建触发器来强制实现不同表中的逻辑相关数据的引用完整性和一致性。由于用户不能绕过触发器，所以可以用它来强制实施复杂的业务规则，以确保数据的完整性。触发器不同于存储过程，触发器主要是通过事件执行触发而被执行的，而存储过程可以通过存储过程名称名字而直接调用。当对某一表进行诸如UPDATE、INSERT、DELETE这些操作时，SQLSERVER就会自动执行触发器所定义的SQL语句，从而确保对数据的处理必须符合这些SQL语句所定义的规则。</p>
 <h2 id="索引的作用及其优缺点"><a href="#索引的作用及其优缺点" class="headerlink" title="索引的作用及其优缺点"></a>索引的作用及其优缺点</h2><p>索引就一种<strong>特殊的查询表</strong>，数据库的搜索可以利用它加速对数据的检索。它很类似与现实生活中书的目录，不需要查询整本书内容就可以找到想要的数据。索引可以是唯一的，创建索引允许指定单个列或者是多个列。<br>缺点是它减慢了数据录入的速度，同时也增加了数据库的尺寸大小。</p>
-
+<h2 id="索引的工作原理及其种类"><a href="#索引的工作原理及其种类" class="headerlink" title="索引的工作原理及其种类"></a>索引的工作原理及其种类</h2><h2 id="数据库三大范式"><a href="#数据库三大范式" class="headerlink" title="数据库三大范式"></a>数据库三大范式</h2><ol>
+<li>第一范式（1NF）<br>在任何一个关系数据库中，第一范式（1NF）是对关系模式的基本要求，不满足第一范式（1NF）的数据库就不是关系数据库。<br>所谓第一范式（1NF）是指数据库表的每一列都是不可分割的基本数据项，同一列中不能有多个值，即实体中的某个属性不能有多个值或者不能有重复的属性。如果出现重复的属性，就可能需要定义一个新的实体，新的实体由重复的属性构成，新实体与原实体之间为一对多关系。在第一范式（1NF）中表的每一行只包含一个实例的信息。简而言之，<font color="#0099ff">第一范式就是无重复的列</font>。</li>
+</ol>
+<ol start="2">
+<li><p>第二范式（2NF）<br>第二范式（2NF）是在第一范式（1NF）的基础上建立起来的，即满足第二范式（2NF）必须先满足第一范式（1NF）。第二范式（2NF）要求数据库表中的每个实例或行必须可以被惟一地区分。为实现区分通常需要为表加上一个列，以存储各个实例的惟一标识。这个惟一属性列被称为主关键字或主键、主码。<br>第二范式（2NF）要求实体的属性完全依赖于主关键字。所谓完全依赖是指不能存在仅依赖主关键字一部分的属性，如果存在，那么这个属性和主关键字的这一部分应该分离出来形成一个新的实体，新实体与原实体之间是一对多的关系。为实现区分通常需要为表加上一个列，以存储各个实例的惟一标识。简而言之，<font color="#0099ff">第二范式就是非主属性非部分依赖于主关键字</font>。</p>
+</li>
+<li><p>第三范式（3NF）<br>满足第三范式（3NF）必须先满足第二范式（2NF）。简而言之，第三范式（3NF）要求一个数据库表中不包含已在其它表中已包含的非主关键字信息。例如，存在一个部门信息表，其中每个部门有部门编号（dept_id）、部门名称、部门简介等信息。那么在员工信息表中列出部门编号后就不能再将部门名称、部门简介等与部门有关的信息再加入员工信息表中。如果不存在部门信息表，则根据第三范式（3NF）也应该构建它，否则就会有大量的数据冗余。简而言之，<font color="#0099ff">第三范式就是属性不依赖于其它非主属性</font>。（我的理解是消除冗余）</p>
+</li>
+</ol>
+<h2 id="数据库优化思路"><a href="#数据库优化思路" class="headerlink" title="数据库优化思路"></a>数据库优化思路</h2>
     </div>
 
     
@@ -636,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主键-超键-候选键-外键"><span class="nav-number">1.</span> <span class="nav-text">主键 超键 候选键 外键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是事务"><span class="nav-number">2.</span> <span class="nav-text">什么是事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是锁"><span class="nav-number">3.</span> <span class="nav-text">什么是锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-MySQL-常用的引擎？"><span class="nav-number">4.</span> <span class="nav-text">说一下 MySQL 常用的引擎？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-MySQL-的行锁和表锁"><span class="nav-number">5.</span> <span class="nav-text">说一下 MySQL 的行锁和表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下乐观锁和悲观锁"><span class="nav-number">6.</span> <span class="nav-text">说一下乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库事务的四个特性及含义"><span class="nav-number">7.</span> <span class="nav-text">数据库事务的四个特性及含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的隔离级别"><span class="nav-number">8.</span> <span class="nav-text">事务的隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图的作用，视图可以更改么"><span class="nav-number">9.</span> <span class="nav-text">视图的作用，视图可以更改么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop-delete与truncate的区别"><span class="nav-number">10.</span> <span class="nav-text">drop,delete与truncate的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的作用"><span class="nav-number">11.</span> <span class="nav-text">触发器的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是存储过程？用什么来调用？"><span class="nav-number">12.</span> <span class="nav-text">什么是存储过程？用什么来调用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程的优缺点？"><span class="nav-number">13.</span> <span class="nav-text">存储过程的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程与函数的区别"><span class="nav-number">14.</span> <span class="nav-text">存储过程与函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的作用及其优缺点"><span class="nav-number">15.</span> <span class="nav-text">索引的作用及其优缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主键-超键-候选键-外键"><span class="nav-number">1.</span> <span class="nav-text">主键 超键 候选键 外键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是事务"><span class="nav-number">2.</span> <span class="nav-text">什么是事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是锁"><span class="nav-number">3.</span> <span class="nav-text">什么是锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-MySQL-常用的引擎？"><span class="nav-number">4.</span> <span class="nav-text">说一下 MySQL 常用的引擎？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-MySQL-的行锁和表锁"><span class="nav-number">5.</span> <span class="nav-text">说一下 MySQL 的行锁和表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下乐观锁和悲观锁"><span class="nav-number">6.</span> <span class="nav-text">说一下乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库事务的四个特性及含义"><span class="nav-number">7.</span> <span class="nav-text">数据库事务的四个特性及含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的隔离级别"><span class="nav-number">8.</span> <span class="nav-text">事务的隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务运行的三种模式"><span class="nav-number">9.</span> <span class="nav-text">事务运行的三种模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图的作用，视图可以更改么"><span class="nav-number">10.</span> <span class="nav-text">视图的作用，视图可以更改么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游标是什么"><span class="nav-number">11.</span> <span class="nav-text">游标是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图的优缺点"><span class="nav-number">12.</span> <span class="nav-text">视图的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举几种表连接方式-有什么区别"><span class="nav-number">13.</span> <span class="nav-text">列举几种表连接方式,有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop-delete与truncate的区别"><span class="nav-number">14.</span> <span class="nav-text">drop,delete与truncate的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的作用"><span class="nav-number">15.</span> <span class="nav-text">触发器的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是存储过程？用什么来调用？"><span class="nav-number">16.</span> <span class="nav-text">什么是存储过程？用什么来调用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程的优缺点？"><span class="nav-number">17.</span> <span class="nav-text">存储过程的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程与函数的区别"><span class="nav-number">18.</span> <span class="nav-text">存储过程与函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的作用及其优缺点"><span class="nav-number">19.</span> <span class="nav-text">索引的作用及其优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的工作原理及其种类"><span class="nav-number">20.</span> <span class="nav-text">索引的工作原理及其种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库三大范式"><span class="nav-number">21.</span> <span class="nav-text">数据库三大范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库优化思路"><span class="nav-number">22.</span> <span class="nav-text">数据库优化思路</span></a></li></ol></div>
             
 
           </div>
@@ -663,12 +723,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">53k</span>
+    <span title="站点总字数">55k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">48 分钟</span>
+    <span title="站点阅读时长">50 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
