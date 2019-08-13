@@ -63,18 +63,24 @@
 <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/163152dc.js","daovoice")</script>
 
 
-  <meta name="description" content="主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表的外键">
+  <meta name="description" content="MySQL主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表">
 <meta name="keywords" content="java数据库篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java数据库篇">
 <meta property="og:url" content="https://kepler-ecnu.github.io/2019/08/12/Java数据库篇/index.html">
 <meta property="og:site_name" content="The real world">
-<meta property="og:description" content="主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表的外键">
+<meta property="og:description" content="MySQL主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-12T14:40:16.812Z">
+<meta property="og:image" content="https://kepler-ecnu.github.io/images/%E7%B4%A2%E5%BC%95%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="https://kepler-ecnu.github.io/images/B-tree.png">
+<meta property="og:image" content="https://kepler-ecnu.github.io/images/hash.png">
+<meta property="og:image" content="https://kepler-ecnu.github.io/images/Btree.png">
+<meta property="og:image" content="https://kepler-ecnu.github.io/images/B+tree.png">
+<meta property="og:updated_time" content="2019-08-13T11:01:32.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java数据库篇">
-<meta name="twitter:description" content="主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表的外键">
+<meta name="twitter:description" content="MySQL主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表">
+<meta name="twitter:image" content="https://kepler-ecnu.github.io/images/%E7%B4%A2%E5%BC%95%E6%96%B9%E5%BC%8F.png">
   <link rel="canonical" href="https://kepler-ecnu.github.io/2019/08/12/Java数据库篇/">
 
 
@@ -284,11 +290,21 @@
                 
               
 
-              <time title="创建时间：2019-08-12 12:47:03 / 修改时间：22:40:16" itemprop="dateCreated datePublished" datetime="2019-08-12T12:47:03+08:00">2019-08-12</time>
+              <time title="创建时间：2019-08-12 12:47:03" itemprop="dateCreated datePublished" datetime="2019-08-12T12:47:03+08:00">2019-08-12</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-13 19:01:32" itemprop="dateModified" datetime="2019-08-13T19:01:32+08:00">2019-08-13</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -315,7 +331,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">8.5k</span>
+              <span title="本文字数">20k</span>
             </span>
           
             <span class="post-meta-item">
@@ -325,7 +341,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">8 分钟</span>
+              <span title="阅读时长">19 分钟</span>
             </span>
           
 
@@ -338,7 +354,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="主键-超键-候选键-外键"><a href="#主键-超键-候选键-外键" class="headerlink" title="主键 超键 候选键 外键"></a>主键 超键 候选键 外键</h2><ul>
+        <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="主键-超键-候选键-外键"><a href="#主键-超键-候选键-外键" class="headerlink" title="主键 超键 候选键 外键"></a>主键 超键 候选键 外键</h2><ul>
 <li>主键<br>数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）</li>
 <li>超键<br>在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。</li>
 <li>候选键<br>是最小超键，即没有冗余元素的超键</li>
@@ -352,7 +368,7 @@
 <h2 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h2><p>百度百科中解释：指作为单个逻辑工作单元执行的一系列操作，要么完全地执行，要么完全地不执行。<br>简单的说，事务就是<strong>并发控制</strong>的单位，是用户定义的一个操作序列。</p>
 <h2 id="什么是锁"><a href="#什么是锁" class="headerlink" title="什么是锁"></a>什么是锁</h2><p>锁（LOCKING）是最常用的并发控制机构。是防止其他事务访问指定的资源控制、实现并发控制的一种主要手段。锁是事务对某个数据库中的资源（如表和记录）存取前，先向系统提出请求，封锁该资源，事务获得锁后，即取得对数据的控制权，在事务释放它的锁之前，其他事务不能更新此数据。当事务撤消后，释放被锁定的资源。<br>当一个用户锁住数据库中的某个对象时，其他用户就不能再访问该对象</p>
 <p>在所有的数据库管理系统（DBMS）中，锁是实现事务的关键，锁可以保证事务的完整性和并发性。与现实生活中锁一样，它可以使某些数据的拥有者，在某段时间内不能使用某些数据或数据结构。</p>
-<h2 id="说一下-MySQL-常用的引擎？"><a href="#说一下-MySQL-常用的引擎？" class="headerlink" title="说一下 MySQL 常用的引擎？"></a>说一下 MySQL 常用的引擎？</h2><ol>
+<h2 id="说一下-MySQL-常用的引擎"><a href="#说一下-MySQL-常用的引擎" class="headerlink" title="说一下 MySQL 常用的引擎"></a>说一下 MySQL 常用的引擎</h2><ol>
 <li>MyISAM：默认表类型，它是基于传统的ISAM类型，ISAM是Indexed Sequential Access Method (有索引的顺序访问方法) 的缩写，它是存储记录和文件的标准方法。不是事务安全的，而且不支持外键，如果执行大量的select，insert MyISAM比较适合。<br>不提供事务的支持，也不支持行级锁和外键。因此当执行插入和更新语句时，即执行写操作的时候需要锁定这个表，所以会导致效率会降低。不过和  InnoDB 不同的是，MyIASM 引擎是保存了表的行数，于是当进行 select count(*) from table  语句时，可以直接的读取已经保存的值而不需要进行扫描全表。所以，如果表的读操作远远多于写操作时，并且不需要事务的支持的，可以将 MyIASM  作为数据库引擎的首选。</li>
 <li>InnoDB：支持事务安全的引擎，支持外键、行锁、事务是他的最大特点。如果有大量的update和insert，建议使用InnoDB，特别是针对多个并发和QPS较高的情况。<br>默认引擎，InnoDB 引擎提供了对数据库 acid  事务的支持，并且还提供了行级锁和外键的约束，它的设计的目标就是处理大数据容量的数据库系统。MySQL 运行的时候，InnoDB  会在内存中建立缓冲池，用于缓冲数据和索引。但是该引擎是不支持全文搜索，同时启动也比较的慢，它是不会保存表的行数的，所以当进行 select  count(*) from table  指令的时候，需要进行扫描全表。由于锁的粒度小，写操作是不会锁定全表的,所以在并发度较高的场景下使用会提升效率的。</li>
 </ol>
@@ -469,7 +485,46 @@
 <p>当存储过程和函数被执行的时候，SQL Manager会到procedure cache中去取相应的查询语句，如果在procedure cache里没有相应的查询语句，SQL Manager就会对存储过程和函数进行编译。<br>Procedure cache中保存的是执行计划 (execution plan) ，当编译好之后就执行procedure cache中的execution plan，之后SQL SERVER会根据每个execution plan的实际情况来考虑是否要在cache中保存这个plan，评判的标准一个是这个execution plan可能被使用的频率；其次是生成这个plan的代价，也就是编译的耗时。保存在cache中的plan在下次执行时就不用再编译了。</p>
 <p>小结：触发器与存储过程非常相似，触发器也是SQL语句集，两者唯一的区别是触发器不能用EXECUTE语句调用，而是在用户执行Transact-SQL语句时自动触发（激活）执行。触发器是在一个修改了指定表中的数据时执行的存储过程。通常通过创建触发器来强制实现不同表中的逻辑相关数据的引用完整性和一致性。由于用户不能绕过触发器，所以可以用它来强制实施复杂的业务规则，以确保数据的完整性。触发器不同于存储过程，触发器主要是通过事件执行触发而被执行的，而存储过程可以通过存储过程名称名字而直接调用。当对某一表进行诸如UPDATE、INSERT、DELETE这些操作时，SQLSERVER就会自动执行触发器所定义的SQL语句，从而确保对数据的处理必须符合这些SQL语句所定义的规则。</p>
 <h2 id="索引的作用及其优缺点"><a href="#索引的作用及其优缺点" class="headerlink" title="索引的作用及其优缺点"></a>索引的作用及其优缺点</h2><p>索引就一种<strong>特殊的查询表</strong>，数据库的搜索可以利用它加速对数据的检索。它很类似与现实生活中书的目录，不需要查询整本书内容就可以找到想要的数据。索引可以是唯一的，创建索引允许指定单个列或者是多个列。<br>缺点是它减慢了数据录入的速度，同时也增加了数据库的尺寸大小。</p>
-<h2 id="索引的工作原理及其种类"><a href="#索引的工作原理及其种类" class="headerlink" title="索引的工作原理及其种类"></a>索引的工作原理及其种类</h2><h2 id="数据库三大范式"><a href="#数据库三大范式" class="headerlink" title="数据库三大范式"></a>数据库三大范式</h2><ol>
+<h2 id="索引的工作原理及其种类"><a href="#索引的工作原理及其种类" class="headerlink" title="索引的工作原理及其种类"></a>索引的工作原理及其种类</h2><p>数据库索引，是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。索引的实现通常使用B树及其变种B+树。</p>
+<p>在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法。这种数据结构，就是索引。</p>
+<p>为表设置索引要付出代价的：一是增加了数据库的存储空间，二是在插入和修改数据时要花费较多的时间(因为索引也要随之变动)。<br><img src="/images/%E7%B4%A2%E5%BC%95%E6%96%B9%E5%BC%8F.png" alt="数据库图例"><br>上图展示了一种可能的索引方式。左边是数据表，一共有两列七条记录，最左边的是数据记录的物理地址（注意逻辑上相邻的记录在磁盘上也并不是一定物理相邻的）。为了加快Col2的查找，可以维护一个右边所示的二叉查找树，每个节点分别包含索引键值和一个指向对应数据记录物理地址的指针，这样就可以运用二叉查找在O(log2n)的复杂度内获取到相应数据。</p>
+<p>创建索引可以大大提高系统的性能。</p>
+<ul>
+<li>通过创建唯一性索引，可以保证数据库表中每一行数据的唯一性。</li>
+<li>可以大大加快数据的检索速度，这也是创建索引的最主要的原因。</li>
+<li>可以加速表和表之间的连接，特别是在实现数据的参考完整性方面特别有意义。</li>
+<li>在使用分组和排序子句进行数据检索时，同样可以显著减少查询中分组和排序的时间。</li>
+<li>通过使用索引，可以在查询的过程中，使用优化隐藏器，提高系统的性能。</li>
+</ul>
+<p>也许会有人要问：增加索引有如此多的优点，为什么不对表中的每一个列创建一个索引呢？因为，增加索引也有许多不利的方面。</p>
+<ul>
+<li>创建索引和维护索引要耗费时间，这种时间随着数据量的增加而增加。</li>
+<li>索引需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大。</li>
+<li>当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，这样就降低了数据的维护速度。</li>
+</ul>
+<p>索引是建立在数据库表中的某些列的上面。在创建索引的时候，应该考虑在哪些列上可以创建索引，在哪些列上不能创建索引。一般来说，应该在这些列上创建索引：</p>
+<ul>
+<li>在经常需要搜索的列上，可以加快搜索的速度；</li>
+<li>在作为主键的列上，强制该列的唯一性和组织表中数据的排列结构；</li>
+<li>在经常用在连接的列上，这些列主要是一些外键，可以加快连接的速度；</li>
+<li>在经常需要根据范围进行搜索的列上创建索引，因为索引已经排序，其指定的范围是连续的；</li>
+<li>在经常需要排序的列上创建索引，因为索引已经排序，这样查询可以利用索引的排序，加快排序查询时间；</li>
+<li>在经常使用在WHERE子句中的列上面创建索引，加快条件的判断速度。</li>
+</ul>
+<p>同样，对于有些列不应该创建索引。一般来说，不应该创建索引的的这些列具有下列特点：</p>
+<ul>
+<li>对于那些在查询中很少使用或者参考的列不应该创建索引。这是因为，既然这些列很少使用到，因此有索引或者无索引，并不能提高查询速度。相反，由于增加了索引，反而降低了系统的维护速度和增大了空间需求。</li>
+<li>对于那些只有很少数据值的列也不应该增加索引。这是因为，由于这些列的取值很少，例如人事表的性别列，在查询的结果中，结果集的数据行占了表中数据行的很大比例，即需要在表中搜索的数据行的比例很大。增加索引，并不能明显加快检索速度。</li>
+<li>对于那些定义为text, image和bit数据类型的列不应该增加索引。这是因为，这些列的数据量要么相当大，要么取值很少。</li>
+<li>当修改性能远远大于检索性能时，不应该创建索引。这是因为，修改性能和检索性能是互相矛盾的。当增加索引时，会提高检索性能，但是会降低修改性能。当减少索引时，会提高修改性能，降低检索性能。因此，当修改性能远远大于检索性能时，不应该创建索引。</li>
+</ul>
+<p>根据数据库的功能，可以在数据库设计器中创建三种索引：<strong>唯一索引</strong>、<strong>主键索引</strong>和<strong>聚集索引</strong>。</p>
+<p><strong>唯一索引</strong><br>    唯一索引是不允许其中任何两行具有相同索引值的索引。<br>    当现有数据中存在重复的键值时，大多数数据库不允许将新创建的唯一索引与表一起保存。数据库还可能防止添加将在表中创建重复键值的新数据。例如，如果在employee表中职员的姓(lname)上创建了唯一索引，则任何两个员工都不能同姓。<br><strong>主键索引</strong><br>    数据库表经常有一列或列组合，其值唯一标识表中的每一行。该列称为表的主键。<br>    在数据库关系图中为表定义主键将自动创建主键索引，主键索引是唯一索引的特定类型。该索引要求主键中的每个值都唯一。当在查询中使用主键索引时，它还允许对数据的快速访问。<br><strong>聚集索引</strong><br>    在聚集索引中，表中行的物理顺序与键值的逻辑（索引）顺序相同。一个表只能包含一个聚集索引。<br>    如果某索引不是聚集索引，则表中行的物理顺序与键值的逻辑顺序不匹配。与非聚集索引相比，聚集索引通常提供更快的数据访问速度。</p>
+<p>局部性原理与磁盘预读<br>由于存储介质的特性，磁盘本身存取就比主存慢很多，再加上机械运动耗费，磁盘的存取速度往往是主存的几百分分之一，因此为了提高效率，要尽量减少磁盘I/O。为了达到这个目的，磁盘往往不是严格按需读取，而是每次都会预读，即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存。这样做的理论依据是计算机科学中著名的局部性原理：当一个数据被用到时，其附近的数据也通常会马上被使用。程序运行期间所需要的数据通常比较集中。</p>
+<p>由于磁盘顺序读取的效率很高（不需要寻道时间，只需很少的旋转时间），因此对于具有<strong>局部性的程序</strong>来说，<strong>预读</strong>可以提高I/O效率。<br>预读的长度一般为页（page）的整倍数。页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，每个存储块称为一页（在许多操作系统中，页得大小通常为4k），主存和磁盘以页为单位交换数据。当程序要读取的数据不在主存中时，会触发一个缺页异常，此时系统会向磁盘发出读盘信号，磁盘会找到数据的起始位置并向后连续读取一页或几页载入内存中，然后异常返回，程序继续运行。</p>
+<p>B-/+Tree索引的性能分析<br>到这里终于可以分析B-/+Tree索引的性能了。<br>上文说过一般使用磁盘I/O次数评价索引结构的优劣。先从B-Tree分析，根据B-Tree的定义，可知检索一次最多需要访问h个节点。数据库系统的设计者巧妙利用了磁盘预读原理，将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入。为了达到这个目的，在实际实现B-Tree还需要使用如下技巧：<br>每次新建节点时，直接申请一个页的空间，这样就保证一个节点物理上也存储在一个页里，加之计算机存储分配都是按页对齐的，就实现了一个node只需一次I/O。<br>B-Tree中一次检索最多需要h-1次I/O（根节点常驻内存），渐进复杂度为O(h)=O(logdN)。一般实际应用中，出度d是非常大的数字，通常超过100，因此h非常小（通常不超过3）。</p>
+<p>而红黑树这种结构，h明显要深的多。由于逻辑上很近的节点（父子）物理上可能很远，无法利用局部性，所以红黑树的I/O渐进复杂度也为O(h)，效率明显比B-Tree差很多。<br>综上所述，用B-Tree作为索引结构效率是非常高的。</p>
+<h2 id="数据库三大范式"><a href="#数据库三大范式" class="headerlink" title="数据库三大范式"></a>数据库三大范式</h2><ol>
 <li>第一范式（1NF）<br>在任何一个关系数据库中，第一范式（1NF）是对关系模式的基本要求，不满足第一范式（1NF）的数据库就不是关系数据库。<br>所谓第一范式（1NF）是指数据库表的每一列都是不可分割的基本数据项，同一列中不能有多个值，即实体中的某个属性不能有多个值或者不能有重复的属性。如果出现重复的属性，就可能需要定义一个新的实体，新的实体由重复的属性构成，新实体与原实体之间为一对多关系。在第一范式（1NF）中表的每一行只包含一个实例的信息。简而言之，<font color="#0099ff">第一范式就是无重复的列</font>。</li>
 </ol>
 <ol start="2">
@@ -478,7 +533,195 @@
 <li><p>第三范式（3NF）<br>满足第三范式（3NF）必须先满足第二范式（2NF）。简而言之，第三范式（3NF）要求一个数据库表中不包含已在其它表中已包含的非主关键字信息。例如，存在一个部门信息表，其中每个部门有部门编号（dept_id）、部门名称、部门简介等信息。那么在员工信息表中列出部门编号后就不能再将部门名称、部门简介等与部门有关的信息再加入员工信息表中。如果不存在部门信息表，则根据第三范式（3NF）也应该构建它，否则就会有大量的数据冗余。简而言之，<font color="#0099ff">第三范式就是属性不依赖于其它非主属性</font>。（我的理解是消除冗余）</p>
 </li>
 </ol>
-<h2 id="数据库优化思路"><a href="#数据库优化思路" class="headerlink" title="数据库优化思路"></a>数据库优化思路</h2>
+<h2 id="为什么用自增列作为主键"><a href="#为什么用自增列作为主键" class="headerlink" title="为什么用自增列作为主键"></a>为什么用自增列作为主键</h2><ol>
+<li>如果我们定义了主键(PRIMARY KEY)，那么InnoDB会选择主键作为聚集索引、如果没有显式定义主键，则InnoDB会选择第一个不包含有NULL值的唯一索引作为主键索引、如果也没有这样的唯一索引，则InnoDB会选择内置6字节长的ROWID作为隐含的聚集索引(ROWID随着行记录的写入而主键递增，这个ROWID不像ORACLE的ROWID那样可引用，是隐含的)。</li>
+<li>数据记录本身被存于主索引（一颗B+Tree）的叶子节点上。这就要求同一个叶子节点内（大小为一个内存页或磁盘页）的各条数据记录按主键顺序存放，因此每当有一条新的记录插入时，MySQL会根据其主键将其插入适当的节点和位置，如果页面达到装载因子（InnoDB默认为15/16），则开辟一个新的页（节点）</li>
+<li>如果表使用自增主键，那么每次插入新的记录，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页</li>
+<li>如果使用非自增主键（如果身份证号或学号等），由于每次插入主键的值近似于随机，因此每次新纪录都要被插到现有索引页得中间某个位置，此时MySQL不得不为了将新记录插到合适位置而移动数据，甚至目标页面可能已经被回写到磁盘上而从缓存中清掉，此时又要从磁盘上读回来，这增加了很多开销，同时频繁的移动、分页操作造成了大量的碎片，得到了不够紧凑的索引结构，后续不得不通过OPTIMIZE TABLE来重建表并优化填充页面。</li>
+</ol>
+<h2 id="为什么使用数据索引能提高效率"><a href="#为什么使用数据索引能提高效率" class="headerlink" title="为什么使用数据索引能提高效率"></a>为什么使用数据索引能提高效率</h2><ol>
+<li>数据索引的存储是有序的</li>
+<li>在有序的情况下，通过索引查询一个数据是无需遍历索引记录的</li>
+<li>极端情况下，数据索引的查询效率为二分法查询效率，趋近于 log2(N)</li>
+</ol>
+<h2 id="B-树索引和哈希索引的区别"><a href="#B-树索引和哈希索引的区别" class="headerlink" title="B+树索引和哈希索引的区别"></a>B+树索引和哈希索引的区别</h2><p>B+树是一个平衡的多叉树，从根节点到每个叶子节点的高度差值不超过1，而且同层级的节点间有指针相互链接，是有序的<br><img src="/images/B-tree.png" alt="B-tree"><br>哈希索引就是采用一定的哈希算法，把键值换算成新的哈希值，检索时不需要类似B+树那样从根节点到叶子节点逐级查找，只需一次哈希算法即可,是无序的<br><img src="/images/hash.png" alt="hash"><br>哈希索引的优势：<br>    等值查询。哈希索引具有绝对优势（前提是：没有大量重复键值，如果大量重复键值时，哈希索引的效率很低，因为存在所谓的哈希碰撞问题。）<br>哈希索引不适用的场景：</p>
+<ul>
+<li>不支持范围查询</li>
+<li>不支持索引完成排序</li>
+<li>不支持联合索引的最左前缀匹配规则</li>
+</ul>
+<p>通常，B+树索引结构适用于绝大多数场景，像下面这种场景用哈希索引才更有优势：<br>在HEAP表中，如果存储的数据重复度很低（也就是说基数很大），对该列数据以等值查询为主，没有范围查询、没有排序的时候，特别适合采用哈希索引，例如这种SQL：<br>select id,name from table where name=’李明’; — 仅等值查询<br>而常用的InnoDB引擎中默认使用的是B+树索引，它会实时监控表上索引的使用情况，如果认为建立哈希索引可以提高查询效率，则自动在内存中的“自适应哈希索引缓冲区”建立哈希索引（在InnoDB中默认开启自适应哈希索引），通过观察搜索模式，MySQL会利用index key的前缀建立哈希索引，如果一个表几乎大部分都在缓冲池中，那么建立一个哈希索引能够加快等值查询。</p>
+<p>注意：在某些工作负载下，通过哈希索引查找带来的性能提升远大于额外的监控索引搜索情况和保持这个哈希表结构所带来的开销。但某些时候，在负载高的情况下，自适应哈希索引中添加的read/write锁也会带来竞争，比如高并发的join操作。like操作和%的通配符操作也不适用于自适应哈希索引，可能要关闭自适应哈希索引。</p>
+<h2 id="B树和B-树的区别"><a href="#B树和B-树的区别" class="headerlink" title="B树和B+树的区别"></a>B树和B+树的区别</h2><p>B树，每个节点都存储key和data，所有节点组成这棵树，并且叶子节点指针为nul，叶子结点不包含任何关键字信息。<br><img src="/images/Btree.png" alt="Btree"><br>B+树，所有的叶子结点中包含了全部关键字的信息，及指向含有这些关键字记录的指针，且叶子结点本身依关键字的大小自小而大的顺序链接，所有的非终端结点可以看成是索引部分，结点中仅含有其子树根结点中最大（或最小）关键字。 (而B 树的非终节点也包含需要查找的有效信息)<br><img src="/images/B+tree.png" alt="B+tree"></p>
+<h2 id="为什么说B-比B树更适合实际应用中操作系统的文件索引和数据库索引"><a href="#为什么说B-比B树更适合实际应用中操作系统的文件索引和数据库索引" class="headerlink" title="为什么说B+比B树更适合实际应用中操作系统的文件索引和数据库索引"></a>为什么说B+比B树更适合实际应用中操作系统的文件索引和数据库索引</h2><ul>
+<li>B+的磁盘读写代价更低B+的内部结点并没有指向关键字具体信息的指针。因此其内部结点相对B树更小。如果把所有同一内部结点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多。一次性读入内存中的需要查找的关键字也就越多。相对来说IO读写次数也就降低了。</li>
+<li>B+-tree的查询效率更加稳定由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字的索引。所以任何关键字的查找必须走一条从根结点到叶子结点的路。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当。</li>
+</ul>
+<h2 id="MySQL联合索引"><a href="#MySQL联合索引" class="headerlink" title="MySQL联合索引"></a>MySQL联合索引</h2><ul>
+<li>联合索引是两个或更多个列上的索引。对于联合索引:Mysql从左到右的使用索引中的字段，一个查询可以只使用索引中的一部份，但只能是最左侧部分。例如索引是key index (a,b,c). 可以支持a 、 a,b 、 a,b,c 3种组合进行查找，但不支持 b,c进行查找 .当最左侧字段是常量引用时，索引就十分有效。</li>
+<li>利用索引中的附加列，您可以缩小搜索的范围，但使用一个具有两列的索引 不同于使用两个单独的索引。复合索引的结构与电话簿类似，人名由姓和名构成，电话簿首先按姓氏对进行排序，然后按名字对有相同姓氏的人进行排序。如果您知 道姓，电话簿将非常有用；如果您知道姓和名，电话簿则更为有用，但如果您只知道名不姓，电话簿将没有用处。</li>
+</ul>
+<h2 id="什么情况下应不建或少建索引"><a href="#什么情况下应不建或少建索引" class="headerlink" title="什么情况下应不建或少建索引"></a>什么情况下应不建或少建索引</h2><ul>
+<li>表记录太少</li>
+<li>经常插入、删除、修改的表</li>
+<li>数据重复且分布平均的表字段，假如一个表有10万行记录，有一个字段A只有T和F两种值，且每个值的分布概率大约为50%，那么对这种表A字段建索引一般不会提高数据库的查询速度。</li>
+<li>经常和主字段一块查询但主字段索引值比较多的表字段</li>
+</ul>
+<h2 id="MySQL分区"><a href="#MySQL分区" class="headerlink" title="MySQL分区"></a>MySQL分区</h2><p>一. 什么是表分区？<br>表分区，是指根据一定规则，将数据库中的一张表分解成多个更小的，容易管理的部分。从逻辑上看，只有一张表，但是底层却是由多个物理分区组成。</p>
+<p>二. 表分区与分表的区别<br>分表：指的是通过一定规则，将一张表分解成多张不同的表。比如将用户订单记录根据时间成多个表。<br>分表与分区的区别在于：分区从逻辑上来讲只有一张表，而分表则是将一张表分解成多张表。</p>
+<p>三. 表分区有什么好处？</p>
+<ul>
+<li>分区表的数据可以分布在不同的物理设备上，从而高效地利用多个硬件设备。 2. 和单个磁盘或者文件系统相比，可以存储更多数据</li>
+<li>优化查询。在where语句中包含分区条件时，可以只扫描一个或多个分区表来提高查询效率；涉及sum和count语句时，也可以在多个分区上并行处理，最后汇总结果。</li>
+<li>分区表更容易维护。例如：想批量删除大量数据可以清除整个分区。</li>
+<li>可以使用分区表来避免某些特殊的瓶颈，例如InnoDB的单个索引的互斥访问，ext3问价你系统的inode锁竞争等。</li>
+</ul>
+<p>四. 分区表的限制因素</p>
+<ul>
+<li>一个表最多只能有1024个分区</li>
+<li>MySQL5.1中，分区表达式必须是整数，或者返回整数的表达式。在MySQL5.5中提供了非整数表达式分区的支持。</li>
+<li>如果分区字段中有主键或者唯一索引的列，那么多有主键列和唯一索引列都必须包含进来。即：分区字段要么不包含主键或者索引列，要么包含全部主键和索引列。</li>
+<li>分区表中无法使用外键约束</li>
+<li>MySQL的分区适用于一个表的所有数据和索引，不能只对表数据分区而不对索引分区，也不能只对索引分区而不对表分区，也不能只对表的一部分数据分区。</li>
+</ul>
+<p>五. 如何判断当前MySQL是否支持分区？<br>命令：show variables like ‘%partition%’ 运行结果:<br>mysql&gt; show variables like ‘%partition%’;+——————-+——-+| Variable_name | Value |+——————-+——-+| have_partitioning | YES |+——————-+——-+1 row in set (0.00 sec)have_partintioning 的值为YES，表示支持分区。</p>
+<p>六. MySQL支持的分区类型有哪些？</p>
+<ul>
+<li>RANGE分区： 这种模式允许将数据划分不同范围。例如可以将一个表通过年份划分成若干个分区</li>
+<li>LIST分区： 这种模式允许系统通过预定义的列表的值来对数据进行分割。按照List中的值分区，与R* ANGE的区别是，range分区的区间范围值是连续的。</li>
+<li>HASH分区 ：这中模式允许通过对表的一个或多个列的Hash Key进行计算，最后通过这个Hash码不同数值对应的数据区域进行分区。例如可以建立一个对表主键进行分区的表。</li>
+<li>KEY分区 ：上面Hash模式的一种延伸，这里的Hash Key是MySQL系统产生的。</li>
+</ul>
+<h2 id="行级锁定的优点"><a href="#行级锁定的优点" class="headerlink" title="行级锁定的优点"></a>行级锁定的优点</h2><ul>
+<li>当在许多线程中访问不同的行时只存在少量锁定冲突。</li>
+<li>回滚时只有少量的更改</li>
+<li>可以长时间锁定单一的行。</li>
+</ul>
+<h2 id="行级锁定的缺点"><a href="#行级锁定的缺点" class="headerlink" title="行级锁定的缺点"></a>行级锁定的缺点</h2><ul>
+<li>比页级或表级锁定占用更多的内存。</li>
+<li>当在表的大部分中使用时，比页级或表级锁定速度慢，因为你必须获取更多的锁。</li>
+<li>如果你在大部分数据上经常进行GROUP BY操作或者必须经常扫描整个表，比其它锁定明显慢很多。</li>
+<li>用高级别锁定，通过支持不同的类型锁定，你也可以很容易地调节应用程序，因为其锁成本小于行级锁定。</li>
+</ul>
+<h2 id="MySQL触发器简单实例"><a href="#MySQL触发器简单实例" class="headerlink" title="MySQL触发器简单实例"></a>MySQL触发器简单实例</h2><ul>
+<li>CREATE TRIGGER &lt;触发器名称&gt; –触发器必须有名字，最多64个字符，可能后面会附有分隔符.它和MySQL中其他对象的命名方式基本相象.</li>
+<li>{ BEFORE | AFTER } –触发器有执行的时间设置：可以设置为事件发生前或后。</li>
+<li>{ INSERT | UPDATE | DELETE } –同样也能设定触发的事件：它们可以在执行insert、update或delete的过程中触发。</li>
+<li>ON &lt;表名称&gt; –触发器是属于某一个表的:当在这个表上执行插入、 更新或删除操作的时候就导致触发器的激活. 我们不能给同一张表的同一个事件安排两个触发器。</li>
+<li>FOR EACH ROW –触发器的执行间隔：FOR EACH ROW子句通知触发器 每隔一行执行一次动作，而不是对整个表执行一次。</li>
+<li>&lt;触发器SQL语句&gt; –触发器包含所要触发的SQL语句：这里的语句可以是任何合法的语句， 包括复合语句，但是这里的语句受的限制和函数的一样。</li>
+</ul>
+<h2 id="MySQL优化"><a href="#MySQL优化" class="headerlink" title="MySQL优化"></a>MySQL优化</h2><ul>
+<li>开启查询缓存，优化查询</li>
+<li>explain你的select查询，这可以帮你分析你的查询语句或是表结构的性能瓶颈。EXPLAIN 的查询结果还会告诉你你的索引主键被如何利用的，你的数据表是如何被搜索和排序的</li>
+<li>当只要一行数据时使用limit 1，MySQL数据库引擎会在找到一条数据后停止搜索，而不是继续往后查少下一条符合记录的数据</li>
+<li>为搜索字段建索引</li>
+<li>使用 ENUM 而不是 VARCHAR，如果你有一个字段，比如“性别”，“国家”，“民族”，“状态”或“部门”，你知道这些字段的取值是有限而且固定的，那么，你应该使用 ENUM 而不是VARCHAR。</li>
+<li>Prepared StatementsPrepared Statements很像存储过程，是一种运行在后台的SQL语句集合，我们可以从使用 prepared statements 获得很多好处，无论是性能问题还是安全问题。Prepared Statements 可以检查一些你绑定好的变量，这样可以保护你的程序不会受到“SQL注入式”攻击</li>
+<li>垂直分表</li>
+<li>选择正确的存储引擎</li>
+</ul>
+<h2 id="key和index的区别"><a href="#key和index的区别" class="headerlink" title="key和index的区别"></a>key和index的区别</h2><ul>
+<li>key 是数据库的物理结构，它包含两层意义和作用，一是约束（偏重于约束和规范数据库的结构完整性），二是索引（辅助查询用的）。包括primary key, unique key, foreign key 等</li>
+<li>index是数据库的物理结构，它只是辅助查询的，它创建时会在另外的表空间（mysql中的innodb表空间）以一个类似目录的结构存储。索引要分类的话，分为前缀索引、全文本索引等；</li>
+</ul>
+<h2 id="数据库优化思路"><a href="#数据库优化思路" class="headerlink" title="数据库优化思路"></a>数据库优化思路</h2><ol>
+<li>SQL语句优化<br> 1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则引擎将放弃使用索引而进行全表扫描。<br> 2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：<br> select id from t where num is null<br> 可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：<br> select id from t where num=0<br> 3）很多时候用 exists 代替 in 是一个好的选择<br> 4）用Where子句替换HAVING子句 因为HAVING只会在检索出所有记录之后才对结果集进行过滤 </li>
+<li>索引优化<br> 看上文索引 </li>
+<li>数据库结构优化<br> 1）范式优化： 比如消除冗余（节省空间）<br> 2）反范式优化：比如适当加冗余等（减少join）<br> 3）拆分表： 分区将数据在物理上分隔开，不同分区的数据可以制定保存在处于不同磁盘上的数据文件里。这样，当对这个表进行查询时，只需要在表分区中进行扫描，而不必进行全表扫描，明显缩短了查询时间，另外处于不同磁盘的分区也将对这个表的数据传输分散在不同的磁盘I/O，一个精心设置的分区可以将数据传输对磁盘I/O竞争均匀地分散开。对数据量大的时时表可采取此方法。可按月自动建表分区。<br> 4）拆分其实又分垂直拆分和水平拆分：<br> 案例： 简单购物系统暂设涉及如下表： <pre><code>1.产品表（数据量10w，稳定） 
+2.订单表（数据量200w，且有增长趋势） 
+3.用户表 （数据量100w，且有增长趋势）
+以mysql为例讲述下水平拆分和垂直拆分，mysql能容忍的数量级在百万静态数据可以到千万
+垂直拆分： 解决问题：表与表之间的io竞争 不解决问题：单表中数据量增长出现的压力
+方案： 把产品表和用户表放到一个server上 订单表单独放到一个server上水平拆分： 解决问题：单表中数据量增长出现的压力 不解决问题：表与表之间的io争夺 </code></pre> 方案： 用户表通过性别拆分为男用户表和女用户表 订单表通过已完成和完成中拆分为已完成订单和未完成订单<br> 产品表 未完成订单放一个server上 已完成订单表盒男用户表放一个server上 女用户表放一个server上(女的爱购物 哈哈) </li>
+<li>服务器硬件优化<br>这个么多花钱咯！</li>
+</ol>
+<h2 id="数据库表创建注意事项"><a href="#数据库表创建注意事项" class="headerlink" title="数据库表创建注意事项"></a>数据库表创建注意事项</h2><p>一、字段名及字段配制合理性</p>
+<ul>
+<li>剔除关系不密切的字段</li>
+<li>字段命名要有规则及相对应的含义（不要一部分英文，一部分拼音，还有类似a.b.c这样不明含义的字段）</li>
+<li>字段命名尽量不要使用缩写（大多数缩写都不能明确字段含义）</li>
+<li>字段不要大小写混用（想要具有可读性，多个英文单词可使用下划线形式连接）</li>
+<li>字段名不要使用保留字或者关键字</li>
+<li>保持字段名和类型的一致性</li>
+<li>慎重选择数字类型</li>
+<li>给文本字段留足余量</li>
+</ul>
+<p>二、系统特殊字段处理及建成后建议</p>
+<ul>
+<li>添加删除标记（例如操作人、删除时间）</li>
+<li>建立版本机制</li>
+</ul>
+<p>三、表结构合理性配置</p>
+<ul>
+<li>多型字段的处理，就是表中是否存在字段能够分解成更小独立的几部分（例如：人可以分为男人和女人）</li>
+<li>多值字段的处理，可以将表分为三张表，这样使得检索和排序更加有调理，且保证数据的完整性！</li>
+</ul>
+<p>四、其它建议</p>
+<ul>
+<li>对于大数据字段，独立表进行存储，以便影响性能（例如：简介字段）</li>
+<li>使用varchar类型代替char，因为varchar会动态分配长度，char指定长度是固定的。</li>
+<li>给表创建主键，对于没有主键的表，在查询和索引定义上有一定的影响。</li>
+<li>免表字段运行为null，建议设置默认值（例如：int类型设置默认值为0）在索引查询上，效率立显！</li>
+<li>建立索引，最好建立在唯一和非空的字段上，建立太多的索引对后期插入、更新都存在一定的影响（考虑实际情况来创建）。</li>
+</ul>
+<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="Redis单线程问题"><a href="#Redis单线程问题" class="headerlink" title="Redis单线程问题"></a>Redis单线程问题</h2><p>单线程指的是网络请求模块使用了一个线程（所以不需考虑并发安全性），即一个线程处理所有网络请求，其他模块仍用了多个线程。</p>
+<h2 id="为什么说Redis能够快速执行"><a href="#为什么说Redis能够快速执行" class="headerlink" title="为什么说Redis能够快速执行"></a>为什么说Redis能够快速执行</h2><ul>
+<li>绝大部分请求是纯粹的内存操作（非常快速）</li>
+<li>采用单线程,避免了不必要的上下文切换和竞争条件</li>
+<li>非阻塞IO - IO多路复用</li>
+</ul>
+<h2 id="Redis的内部实现"><a href="#Redis的内部实现" class="headerlink" title="Redis的内部实现"></a>Redis的内部实现</h2><p>内部实现采用epoll，采用了epoll+自己实现的简单的事件框架。epoll中的读、写、关闭、连接都转化成了事件，然后利用epoll的多路复用特性，不在io上浪费一点时间 这3个条件不是相互独立的，特别是第一条，如果请求都是耗时的，采用单线程吞吐量及性能很差。redis为特殊的场景选择了合适的技术方案。</p>
+<h2 id="Redis关于线程安全问题"><a href="#Redis关于线程安全问题" class="headerlink" title="Redis关于线程安全问题"></a>Redis关于线程安全问题</h2><p>redis实际上是采用了线程封闭的观念，把任务封闭在一个线程，自然避免了线程安全问题，不过对于需要依赖多个redis操作的复合操作来说，依然需要锁，而且有可能是分布式锁。</p>
+<h2 id="使用Redis有哪些好处"><a href="#使用Redis有哪些好处" class="headerlink" title="使用Redis有哪些好处"></a>使用Redis有哪些好处</h2><ul>
+<li>速度快，因为数据存在内存中，类似于HashMap，HashMap的优势就是查找和操作的时间复杂度都是O(1)</li>
+<li>支持丰富数据类型，支持string，list，set，sorted set，hash</li>
+<li>支持事务，操作都是原子性，所谓的原子性就是对数据的更改要么全部执行，要么全部不执行</li>
+<li>丰富的特性：可用于缓存，消息，按key设置过期时间，过期后将会自动删除</li>
+</ul>
+<h2 id="redis相比memcached有哪些优势"><a href="#redis相比memcached有哪些优势" class="headerlink" title="redis相比memcached有哪些优势"></a>redis相比memcached有哪些优势</h2><ul>
+<li>memcached所有的值均是简单的字符串，redis作为其替代者，支持更为丰富的数据类型</li>
+<li>redis的速度比memcached快很多</li>
+<li>redis可以持久化其数据</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+<li>使用底层模型不同，它们之间底层实现方式 以及与客户端之间通信的应用协议不一样。Redis直接自己构建了VM 机制 ，因为一般的系统调用系统函数的话，会浪费一定的时间去移动和请求。</li>
+<li>value大小：redis最大可以达到1GB，而memcache只有1MB</li>
+</ul>
+<h2 id="Redis主从复制"><a href="#Redis主从复制" class="headerlink" title="Redis主从复制"></a>Redis主从复制</h2><p>过程原理：</p>
+<ul>
+<li>当从库和主库建立MS关系后,会向主数据库发送SYNC命令</li>
+<li>主库接收到SYNC命令后会开始在后台保存快照(RDB持久化过程),并将期间接收到的写命令缓存起来</li>
+<li>当快照完成后,主Redis会将快照文件和所有缓存的写命令发送给从Redis</li>
+<li>从Redis接收到后,会载入快照文件并且执行收到的缓存的命令</li>
+<li>之后,主Redis每当接收到写命令时就会将命令发送从Redis，从而保证数据的一致</li>
+</ul>
+<p>缺点：所有的slave节点数据的复制和同步都由master节点来处理,会照成master节点压力太大,使用主从从结构来解决</p>
+<h2 id="Redis两种持久化方式的优缺点"><a href="#Redis两种持久化方式的优缺点" class="headerlink" title="Redis两种持久化方式的优缺点"></a>Redis两种持久化方式的优缺点</h2><ul>
+<li>RDB 持久化可以在指定的时间间隔内生成数据集的时间点快照（point-in-time snapshot）</li>
+<li>AOF 持久化记录服务器执行的所有写操作命令，并在服务器启动时，通过重新执行这些命令来还原数据集。</li>
+<li>Redis 还可以同时使用 AOF 持久化和 RDB 持久化。当redis重启时,它会有限使用AOF文件来还原数据集,因为AOF文件保存的数据集通常比RDB文件所保存的数据集更加完整</li>
+</ul>
+<h2 id="RDB的优点："><a href="#RDB的优点：" class="headerlink" title="RDB的优点："></a>RDB的优点：</h2><ul>
+<li>RDB 是一个非常紧凑（compact）的文件，它保存了 Redis 在某个时间点上的数据集。 这种文件非常适合用于进行备份： 比如说，你可以在最近的 24 小时内，每小时备份一次 RDB 文件，并且在每个月的每一天，也备份一个 RDB 文件。 这样的话，即使遇上问题，也可以随时将数据集还原到不同的版本。</li>
+<li>RDB 非常适用于灾难恢复（disaster recovery）：它只有一个文件，并且内容都非常紧凑，可以（在加密后）将它传送到别的数据中心，或者亚马逊 S3 中。</li>
+<li>RDB 可以最大化 Redis 的性能：父进程在保存 RDB 文件时唯一要做的就是 fork 出一个子进程，然后这个子进程就会处理接下来的所有保存工作，父进程无须执行任何磁盘 I/O 操作。</li>
+<li>RDB 在恢复大数据集时的速度比 AOF 的恢复速度要快</li>
+</ul>
+<h2 id="Redis常见的性能问题都有哪些？如何解决？"><a href="#Redis常见的性能问题都有哪些？如何解决？" class="headerlink" title="Redis常见的性能问题都有哪些？如何解决？"></a>Redis常见的性能问题都有哪些？如何解决？</h2><ul>
+<li>Master写内存快照，save命令调度rdbSave函数，会阻塞主线程的工作，当快照比较大时对性能影响是非常大的，会间断性暂停服务，所以Master最好不要写内存快照。</li>
+<li>Master AOF持久化，如果不重写AOF文件，这个持久化方式对性能的影响是最小的，但是AOF文件会不断增大，AOF文件过大会影响Master重启的恢复速度。Master最好不要做任何持久化工作，包括内存快照和AOF日志文件，特别是不要启用内存快照做持久化,如果数据比较关键，某个Slave开启AOF备份数据，策略为每秒同步一次。</li>
+<li>Master调用BGREWRITEAOF重写AOF文件，AOF在重写的时候会占大量的CPU和内存资源，导致服务load过高，出现短暂服务暂停现象。</li>
+<li>Redis主从复制的性能问题，为了主从复制的速度和连接的稳定性，Slave和Master最好在同一个局域网内</li>
+</ul>
+<h2 id="Redis提供6种数据淘汰策略"><a href="#Redis提供6种数据淘汰策略" class="headerlink" title="Redis提供6种数据淘汰策略"></a>Redis提供6种数据淘汰策略</h2><ul>
+<li>volatile-lru：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰</li>
+<li>volatile-ttl：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰</li>
+<li>volatile-random：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰</li>
+<li>allkeys-lru：从数据集（server.db[i].dict）中挑选最近最少使用的数据淘汰</li>
+<li>allkeys-random：从数据集（server.db[i].dict）中任意选择数据淘汰</li>
+<li>no-enviction（驱逐）：禁止驱逐数据</li>
+</ul>
+
     </div>
 
     
@@ -696,7 +939,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主键-超键-候选键-外键"><span class="nav-number">1.</span> <span class="nav-text">主键 超键 候选键 外键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是事务"><span class="nav-number">2.</span> <span class="nav-text">什么是事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是锁"><span class="nav-number">3.</span> <span class="nav-text">什么是锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-MySQL-常用的引擎？"><span class="nav-number">4.</span> <span class="nav-text">说一下 MySQL 常用的引擎？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-MySQL-的行锁和表锁"><span class="nav-number">5.</span> <span class="nav-text">说一下 MySQL 的行锁和表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下乐观锁和悲观锁"><span class="nav-number">6.</span> <span class="nav-text">说一下乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库事务的四个特性及含义"><span class="nav-number">7.</span> <span class="nav-text">数据库事务的四个特性及含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的隔离级别"><span class="nav-number">8.</span> <span class="nav-text">事务的隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务运行的三种模式"><span class="nav-number">9.</span> <span class="nav-text">事务运行的三种模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图的作用，视图可以更改么"><span class="nav-number">10.</span> <span class="nav-text">视图的作用，视图可以更改么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游标是什么"><span class="nav-number">11.</span> <span class="nav-text">游标是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图的优缺点"><span class="nav-number">12.</span> <span class="nav-text">视图的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举几种表连接方式-有什么区别"><span class="nav-number">13.</span> <span class="nav-text">列举几种表连接方式,有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop-delete与truncate的区别"><span class="nav-number">14.</span> <span class="nav-text">drop,delete与truncate的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的作用"><span class="nav-number">15.</span> <span class="nav-text">触发器的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是存储过程？用什么来调用？"><span class="nav-number">16.</span> <span class="nav-text">什么是存储过程？用什么来调用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程的优缺点？"><span class="nav-number">17.</span> <span class="nav-text">存储过程的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程与函数的区别"><span class="nav-number">18.</span> <span class="nav-text">存储过程与函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的作用及其优缺点"><span class="nav-number">19.</span> <span class="nav-text">索引的作用及其优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的工作原理及其种类"><span class="nav-number">20.</span> <span class="nav-text">索引的工作原理及其种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库三大范式"><span class="nav-number">21.</span> <span class="nav-text">数据库三大范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库优化思路"><span class="nav-number">22.</span> <span class="nav-text">数据库优化思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">1.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主键-超键-候选键-外键"><span class="nav-number">1.1.</span> <span class="nav-text">主键 超键 候选键 外键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是事务"><span class="nav-number">1.2.</span> <span class="nav-text">什么是事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是锁"><span class="nav-number">1.3.</span> <span class="nav-text">什么是锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-MySQL-常用的引擎"><span class="nav-number">1.4.</span> <span class="nav-text">说一下 MySQL 常用的引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-MySQL-的行锁和表锁"><span class="nav-number">1.5.</span> <span class="nav-text">说一下 MySQL 的行锁和表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下乐观锁和悲观锁"><span class="nav-number">1.6.</span> <span class="nav-text">说一下乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库事务的四个特性及含义"><span class="nav-number">1.7.</span> <span class="nav-text">数据库事务的四个特性及含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的隔离级别"><span class="nav-number">1.8.</span> <span class="nav-text">事务的隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务运行的三种模式"><span class="nav-number">1.9.</span> <span class="nav-text">事务运行的三种模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图的作用，视图可以更改么"><span class="nav-number">1.10.</span> <span class="nav-text">视图的作用，视图可以更改么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游标是什么"><span class="nav-number">1.11.</span> <span class="nav-text">游标是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图的优缺点"><span class="nav-number">1.12.</span> <span class="nav-text">视图的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举几种表连接方式-有什么区别"><span class="nav-number">1.13.</span> <span class="nav-text">列举几种表连接方式,有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop-delete与truncate的区别"><span class="nav-number">1.14.</span> <span class="nav-text">drop,delete与truncate的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的作用"><span class="nav-number">1.15.</span> <span class="nav-text">触发器的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是存储过程？用什么来调用？"><span class="nav-number">1.16.</span> <span class="nav-text">什么是存储过程？用什么来调用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程的优缺点？"><span class="nav-number">1.17.</span> <span class="nav-text">存储过程的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程与函数的区别"><span class="nav-number">1.18.</span> <span class="nav-text">存储过程与函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的作用及其优缺点"><span class="nav-number">1.19.</span> <span class="nav-text">索引的作用及其优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的工作原理及其种类"><span class="nav-number">1.20.</span> <span class="nav-text">索引的工作原理及其种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库三大范式"><span class="nav-number">1.21.</span> <span class="nav-text">数据库三大范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么用自增列作为主键"><span class="nav-number">1.22.</span> <span class="nav-text">为什么用自增列作为主键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用数据索引能提高效率"><span class="nav-number">1.23.</span> <span class="nav-text">为什么使用数据索引能提高效率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树索引和哈希索引的区别"><span class="nav-number">1.24.</span> <span class="nav-text">B+树索引和哈希索引的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树和B-树的区别"><span class="nav-number">1.25.</span> <span class="nav-text">B树和B+树的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么说B-比B树更适合实际应用中操作系统的文件索引和数据库索引"><span class="nav-number">1.26.</span> <span class="nav-text">为什么说B+比B树更适合实际应用中操作系统的文件索引和数据库索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL联合索引"><span class="nav-number">1.27.</span> <span class="nav-text">MySQL联合索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况下应不建或少建索引"><span class="nav-number">1.28.</span> <span class="nav-text">什么情况下应不建或少建索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL分区"><span class="nav-number">1.29.</span> <span class="nav-text">MySQL分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行级锁定的优点"><span class="nav-number">1.30.</span> <span class="nav-text">行级锁定的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行级锁定的缺点"><span class="nav-number">1.31.</span> <span class="nav-text">行级锁定的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL触发器简单实例"><span class="nav-number">1.32.</span> <span class="nav-text">MySQL触发器简单实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL优化"><span class="nav-number">1.33.</span> <span class="nav-text">MySQL优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key和index的区别"><span class="nav-number">1.34.</span> <span class="nav-text">key和index的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库优化思路"><span class="nav-number">1.35.</span> <span class="nav-text">数据库优化思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库表创建注意事项"><span class="nav-number">1.36.</span> <span class="nav-text">数据库表创建注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">2.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis单线程问题"><span class="nav-number">2.1.</span> <span class="nav-text">Redis单线程问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么说Redis能够快速执行"><span class="nav-number">2.2.</span> <span class="nav-text">为什么说Redis能够快速执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis的内部实现"><span class="nav-number">2.3.</span> <span class="nav-text">Redis的内部实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis关于线程安全问题"><span class="nav-number">2.4.</span> <span class="nav-text">Redis关于线程安全问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Redis有哪些好处"><span class="nav-number">2.5.</span> <span class="nav-text">使用Redis有哪些好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis相比memcached有哪些优势"><span class="nav-number">2.6.</span> <span class="nav-text">redis相比memcached有哪些优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis主从复制"><span class="nav-number">2.7.</span> <span class="nav-text">Redis主从复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis两种持久化方式的优缺点"><span class="nav-number">2.8.</span> <span class="nav-text">Redis两种持久化方式的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB的优点："><span class="nav-number">2.9.</span> <span class="nav-text">RDB的优点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis常见的性能问题都有哪些？如何解决？"><span class="nav-number">2.10.</span> <span class="nav-text">Redis常见的性能问题都有哪些？如何解决？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis提供6种数据淘汰策略"><span class="nav-number">2.11.</span> <span class="nav-text">Redis提供6种数据淘汰策略</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -723,12 +966,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">55k</span>
+    <span title="站点总字数">67k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">50 分钟</span>
+    <span title="站点阅读时长">1:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
