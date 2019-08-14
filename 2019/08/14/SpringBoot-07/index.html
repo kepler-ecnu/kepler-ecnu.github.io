@@ -63,19 +63,19 @@
 <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/163152dc.js","daovoice")</script>
 
 
-  <meta name="description" content="这部分内容学习和摘录于B站稀客大大 Spring Boot 简介 简化Spring应用开发的一个框架 整个Spring技术栈的一个大整合 J2EE开发的一站式解决方案  微服务 架构风格（服务微化） 一个应用应该是一组小型服务；可以通过HTTP的方法进行互通 单体应用： ALL IN ONE 每一个功能元素最终都是一个可独立替换和独立升级的软件单元  环境准备 环境约束  jdk 1.8+  ma">
+  <meta name="description" content="配置文件详解YML是什么SpringBoot使用一个全局的配置文件，配置文件名是固定的；  application.properties application.yml  配置文件的作用：修改SpringBoot自动配置的默认值； YAML（YAML Ain’t Markup Language） YAML A Markup Language：是一个标记语言 YAML isn’t Markup La">
 <meta name="keywords" content="Spring Boot,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot-00">
-<meta property="og:url" content="https://kepler-ecnu.github.io/2019/08/13/SpringBoot-00/index.html">
+<meta property="og:title" content="SpringBoot-07">
+<meta property="og:url" content="https://kepler-ecnu.github.io/2019/08/14/SpringBoot-07/index.html">
 <meta property="og:site_name" content="The real world">
-<meta property="og:description" content="这部分内容学习和摘录于B站稀客大大 Spring Boot 简介 简化Spring应用开发的一个框架 整个Spring技术栈的一个大整合 J2EE开发的一站式解决方案  微服务 架构风格（服务微化） 一个应用应该是一组小型服务；可以通过HTTP的方法进行互通 单体应用： ALL IN ONE 每一个功能元素最终都是一个可独立替换和独立升级的软件单元  环境准备 环境约束  jdk 1.8+  ma">
+<meta property="og:description" content="配置文件详解YML是什么SpringBoot使用一个全局的配置文件，配置文件名是固定的；  application.properties application.yml  配置文件的作用：修改SpringBoot自动配置的默认值； YAML（YAML Ain’t Markup Language） YAML A Markup Language：是一个标记语言 YAML isn’t Markup La">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-13T14:50:26.205Z">
+<meta property="og:updated_time" content="2019-08-14T14:35:45.137Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot-00">
-<meta name="twitter:description" content="这部分内容学习和摘录于B站稀客大大 Spring Boot 简介 简化Spring应用开发的一个框架 整个Spring技术栈的一个大整合 J2EE开发的一站式解决方案  微服务 架构风格（服务微化） 一个应用应该是一组小型服务；可以通过HTTP的方法进行互通 单体应用： ALL IN ONE 每一个功能元素最终都是一个可独立替换和独立升级的软件单元  环境准备 环境约束  jdk 1.8+  ma">
-  <link rel="canonical" href="https://kepler-ecnu.github.io/2019/08/13/SpringBoot-00/">
+<meta name="twitter:title" content="SpringBoot-07">
+<meta name="twitter:description" content="配置文件详解YML是什么SpringBoot使用一个全局的配置文件，配置文件名是固定的；  application.properties application.yml  配置文件的作用：修改SpringBoot自动配置的默认值； YAML（YAML Ain’t Markup Language） YAML A Markup Language：是一个标记语言 YAML isn’t Markup La">
+  <link rel="canonical" href="https://kepler-ecnu.github.io/2019/08/14/SpringBoot-07/">
 
 
 <script id="page.configurations">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>SpringBoot-00 | The real world</title>
+  <title>SpringBoot-07 | The real world</title>
   
 
 
@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kepler-ecnu.github.io/2019/08/13/SpringBoot-00/">
+    <link itemprop="mainEntityOfPage" href="https://kepler-ecnu.github.io/2019/08/14/SpringBoot-07/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kepler">
@@ -264,7 +264,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot-00
+          <h1 class="post-title" itemprop="name headline">SpringBoot-07
 
               
             
@@ -284,7 +284,7 @@
                 
               
 
-              <time title="创建时间：2019-08-13 22:00:26 / 修改时间：22:50:26" itemprop="dateCreated datePublished" datetime="2019-08-13T22:00:26+08:00">2019-08-13</time>
+              <time title="创建时间：2019-08-14 21:52:09 / 修改时间：22:35:45" itemprop="dateCreated datePublished" datetime="2019-08-14T21:52:09+08:00">2019-08-14</time>
             </span>
           
             
@@ -329,7 +329,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.1k</span>
+              <span title="本文字数">982</span>
             </span>
           
             <span class="post-meta-item">
@@ -339,7 +339,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -352,40 +352,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这部分内容学习和摘录于B站<a href="https://www.bilibili.com/video/av39775932" target="_blank" rel="noopener">稀客大大</a></p>
-<h2 id="Spring-Boot-简介"><a href="#Spring-Boot-简介" class="headerlink" title="Spring Boot 简介"></a>Spring Boot 简介</h2><ul>
-<li>简化Spring应用开发的一个框架</li>
-<li>整个Spring技术栈的一个大整合</li>
-<li>J2EE开发的一站式解决方案</li>
-</ul>
-<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><ul>
-<li>架构风格（服务微化）</li>
-<li>一个应用应该是一组小型服务；可以通过HTTP的方法进行互通</li>
-<li>单体应用： ALL IN ONE</li>
-<li>每一个功能元素最终都是一个可独立替换和独立升级的软件单元</li>
-</ul>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
-<li>环境约束<br>  jdk 1.8+<br>  maven 3.3+<br>  A favorite text editor or IDE: Intellij IDEA<br>  SpringBoot </li>
-</ul>
-<h2 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h2><p>进入maven文件目录，给<code>M2_HOME\conf\settings.xml</code>配置文件添加如下内容：</p>
+        <h1 id="配置文件详解"><a href="#配置文件详解" class="headerlink" title="配置文件详解"></a>配置文件详解</h1><h2 id="YML是什么"><a href="#YML是什么" class="headerlink" title="YML是什么"></a>YML是什么</h2><p>SpringBoot使用一个全局的配置文件，配置文件名是固定的；</p>
 <ul>
-<li><p>在<code>&lt;mirrors&gt;</code>和<code>&lt;/mirrors&gt;</code>之间添加如下内容</p>
+<li>application.properties</li>
+<li>application.yml</li>
+</ul>
+<p>配置文件的作用：修改SpringBoot自动配置的默认值；</p>
+<p>YAML（YAML Ain’t Markup Language）</p>
+<pre><code>YAML A Markup Language：是一个标记语言
+YAML isn’t Markup Language：不是一个标记语言</code></pre><p>标记语言：</p>
+<pre><code>以前的配置文件；大多都使用的是xxx.xml文件；
+YAML：以数据为中心，比json、xml等更适合做配置文件；</code></pre><ul>
+<li><p>YAML：配置例子</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8081</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>作用：国内maven仓库镜像（国内不能很好的访问maven中央仓库）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>        </span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>&lt;profiles&gt;</code>和<code>&lt;/profiles&gt;</code></p>
-</li>
-<li><p>作用：指定项目编译运行使用的JDK版本</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.8<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.compilerVersion</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.compilerVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 如果是在学校或公司有maven私服，可以在这里配置私服 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>accp<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>accp<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.48:8081/repository/accp/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 如果没有私服，这里不用配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>XML：配置例子</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">port</span>&gt;</span>8081<span class="tag">&lt;/<span class="name">port</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h2 id="IDEA配置"><a href="#IDEA配置" class="headerlink" title="IDEA配置"></a>IDEA配置</h2><p>整合Maven进来</p>
-<h2 id="修改Banner"><a href="#修改Banner" class="headerlink" title="修改Banner"></a>修改Banner</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$&#123;AnsiColor.BLUE&#125;</span><br><span class="line"></span><br><span class="line">  _              _           </span><br><span class="line"> | | _____ _ __ | | ___ _ __ </span><br><span class="line"> | |/ / _ \ &apos;_ \| |/ _ \ &apos;__|</span><br><span class="line"> |   &lt;  __/ |_) | |  __/ |   </span><br><span class="line"> |_|\_\___| .__/|_|\___|_|   </span><br><span class="line">          |_|                </span><br><span class="line"></span><br><span class="line">-----版本号-----$&#123;spring-boot.version&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="YML语法"><a href="#YML语法" class="headerlink" title="YML语法"></a>YML语法</h2><p>k:(空格)v：表示一对键值对（空格必须有）；<br>以<strong>空格</strong>的缩进来控制层级关系；只要是左对齐的一列数据，都是同一个层级的</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8081</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">/hello</span></span><br></pre></td></tr></table></figure>
 
-<p>文字Banner可以从这个网站生成(有很多种字体样式可以选择)<br><a href="http://patorjk.com/software/taag" target="_blank" rel="noopener">http://patorjk.com/software/taag</a><br>${AnsiColor.BLUE} 表示Banner文字的颜色<br>${spring-boot.version} 当前使用的SpringBoot版本</p>
+<p> 属性和值也是大小写敏感；</p>
+<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><pre><code>普通的值（数字，字符串，布尔）</code></pre><p>k: v 字面量直接来写</p>
+<pre><code>字符串默认不用加上单引号或者双引号；
+&quot;&quot;：双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身想表示的意思
+    name:   &quot;zhangsan \n lisi&quot;：输出；zhangsan 换行  lisi
+&apos;&apos;：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据
+    name:   ‘zhangsan \n lisi’：输出；zhangsan \n  lisi</code></pre><h3 id="对象、-Map"><a href="#对象、-Map" class="headerlink" title="对象、 Map"></a>对象、 Map</h3><pre><code>(属性和值) (键值对)：</code></pre><p>k: v：在下一行来写对象的属性和值的关系；注意缩进<br>​ 对象还是k: v的方式</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">friends:</span></span><br><span class="line"><span class="attr">  lastName:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">  age:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
 
+<p>行内写法：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">friends:</span> <span class="string">&#123;lastName:</span> <span class="string">zhangsan,</span> <span class="attr">age:</span> <span class="number">18</span><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><pre><code>（List、Set）</code></pre><p>用-值表示数组中的一个元素</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span></span><br><span class="line"><span class="bullet"> -</span> <span class="string">cat</span></span><br><span class="line"><span class="bullet"> -</span> <span class="string">dog</span></span><br><span class="line"><span class="bullet"> -</span> <span class="string">pig</span></span><br></pre></td></tr></table></figure>
+
+<p>行内写法：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span> <span class="string">[cat,</span> <span class="string">dog,</span> <span class="string">pig]</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -428,8 +433,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/12/Java数据库篇/" rel="next" title="Java数据库篇">
-                <i class="fa fa-chevron-left"></i> Java数据库篇
+              <a href="/2019/08/14/SpringBoot-06/" rel="next" title="SpringBoot-06">
+                <i class="fa fa-chevron-left"></i> SpringBoot-06
               </a>
             
           </div>
@@ -437,10 +442,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/13/SpringBoot-01/" rel="prev" title="SpringBoot-01">
-                SpringBoot-01 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -625,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-简介"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务"><span class="nav-number">2.</span> <span class="nav-text">微服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">3.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven配置"><span class="nav-number">4.</span> <span class="nav-text">Maven配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA配置"><span class="nav-number">5.</span> <span class="nav-text">IDEA配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改Banner"><span class="nav-number">6.</span> <span class="nav-text">修改Banner</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置文件详解"><span class="nav-number">1.</span> <span class="nav-text">配置文件详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#YML是什么"><span class="nav-number">1.1.</span> <span class="nav-text">YML是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YML语法"><span class="nav-number">1.2.</span> <span class="nav-text">YML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字面量"><span class="nav-number">1.2.1.</span> <span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象、-Map"><span class="nav-number">1.2.2.</span> <span class="nav-text">对象、 Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">1.2.3.</span> <span class="nav-text">数组</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
