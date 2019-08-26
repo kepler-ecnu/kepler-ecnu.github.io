@@ -63,19 +63,19 @@
 <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/163152dc.js","daovoice")</script>
 
 
-  <meta name="description" content="原理POM 文件 父项目 123456&amp;lt;parent&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.1.7.RELEASE&amp;lt;/vers">
-<meta name="keywords" content="Spring Boot,Java">
+  <meta name="description" content="在早期的项目代码中，如果我们想使用类的某个方法，我们基本都会创建一个类的对象实例然后再调用方法，这样的实现往往在系统内存在某个类的大量实例。久而久之，项目框架很难管理大量的对象，而且如果Java虚拟机不能及时回收，也很容易造成内存溢出。 所谓单例就是在项目框架内某个类的对象实例只存在一个，任何调用方获取到的对象实例都是一个，那么很明显这个类是不能被外部直接调用类构造器创建的。 首先看一个简单的单例">
+<meta name="keywords" content="java知识点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot-03">
-<meta property="og:url" content="https://kepler-ecnu.github.io/2019/08/14/SpringBoot-03/index.html">
+<meta property="og:title" content="单例问题">
+<meta property="og:url" content="https://kepler-ecnu.github.io/2019/08/26/单例问题/index.html">
 <meta property="og:site_name" content="The real world">
-<meta property="og:description" content="原理POM 文件 父项目 123456&amp;lt;parent&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.1.7.RELEASE&amp;lt;/vers">
+<meta property="og:description" content="在早期的项目代码中，如果我们想使用类的某个方法，我们基本都会创建一个类的对象实例然后再调用方法，这样的实现往往在系统内存在某个类的大量实例。久而久之，项目框架很难管理大量的对象，而且如果Java虚拟机不能及时回收，也很容易造成内存溢出。 所谓单例就是在项目框架内某个类的对象实例只存在一个，任何调用方获取到的对象实例都是一个，那么很明显这个类是不能被外部直接调用类构造器创建的。 首先看一个简单的单例">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-14T07:43:47.680Z">
+<meta property="og:updated_time" content="2019-08-26T05:20:31.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot-03">
-<meta name="twitter:description" content="原理POM 文件 父项目 123456&amp;lt;parent&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.1.7.RELEASE&amp;lt;/vers">
-  <link rel="canonical" href="https://kepler-ecnu.github.io/2019/08/14/SpringBoot-03/">
+<meta name="twitter:title" content="单例问题">
+<meta name="twitter:description" content="在早期的项目代码中，如果我们想使用类的某个方法，我们基本都会创建一个类的对象实例然后再调用方法，这样的实现往往在系统内存在某个类的大量实例。久而久之，项目框架很难管理大量的对象，而且如果Java虚拟机不能及时回收，也很容易造成内存溢出。 所谓单例就是在项目框架内某个类的对象实例只存在一个，任何调用方获取到的对象实例都是一个，那么很明显这个类是不能被外部直接调用类构造器创建的。 首先看一个简单的单例">
+  <link rel="canonical" href="https://kepler-ecnu.github.io/2019/08/26/单例问题/">
 
 
 <script id="page.configurations">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>SpringBoot-03 | The real world</title>
+  <title>单例问题 | The real world</title>
   
 
 
@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kepler-ecnu.github.io/2019/08/14/SpringBoot-03/">
+    <link itemprop="mainEntityOfPage" href="https://kepler-ecnu.github.io/2019/08/26/单例问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kepler">
@@ -264,7 +264,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot-03
+          <h1 class="post-title" itemprop="name headline">单例问题
 
               
             
@@ -284,7 +284,7 @@
                 
               
 
-              <time title="创建时间：2019-08-14 11:46:33 / 修改时间：15:43:47" itemprop="dateCreated datePublished" datetime="2019-08-14T11:46:33+08:00">2019-08-14</time>
+              <time title="创建时间：2019-08-26 12:17:10 / 修改时间：13:20:31" itemprop="dateCreated datePublished" datetime="2019-08-26T12:17:10+08:00">2019-08-26</time>
             </span>
           
             
@@ -299,21 +299,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Spring/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java知识点整理/" itemprop="url" rel="index"><span itemprop="name">java知识点整理</span></a></span>
 
                 
                 
@@ -333,8 +319,8 @@
       <span class="post-meta-item-text">评论数：</span>
     
   
-    <a href="/2019/08/14/SpringBoot-03/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/08/14/SpringBoot-03/" itemprop="commentCount"></span>
+    <a href="/2019/08/26/单例问题/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/08/26/单例问题/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -347,7 +333,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">3.2k</span>
+              <span title="本文字数">2.8k</span>
             </span>
           
             <span class="post-meta-item">
@@ -370,46 +356,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="POM-文件"><a href="#POM-文件" class="headerlink" title="POM 文件"></a>POM 文件</h2><ul>
-<li><p>父项目</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.7.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>在早期的项目代码中，如果我们想使用类的某个方法，我们基本都会创建一个类的对象实例然后再调用方法，这样的实现往往在系统内存在某个类的大量实例。久而久之，项目框架很难管理大量的对象，而且如果Java虚拟机不能及时回收，也很容易造成内存溢出。</p>
+<p>所谓<strong>单例</strong>就是在项目框架内某个类的对象实例只存在一个，任何调用方获取到的对象实例都是一个，那么很明显这个类是不能被外部直接调用类构造器创建的。</p>
+<p>首先看一个简单的单例设计（<strong>饱汉式</strong>）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">null</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">			singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>  它的父项目是</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.7.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">relativePath</span>&gt;</span>../../spring-boot-dependencies<span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码在单线程中是没有问题的，而且只有当线程调用类的静态方法时，才会生成类的静态变量。但是当多线程访问时，上面代码是有问题的，会生成多个对象的实例。<br><strong>注：为什么要特意加一个空的构造函数呢？</strong><br>如果使用默认的构造函数，那么new一个依然可以获取到另一份单例实体，这是不允许的。因此这里显示的把构造函数置空，同时加上private保证外界无法访问，用户即使new了一个也无法再次创建单例对象，要用这个对象只能通过暴露给外界的getInstance方法获取。简言之，将该类的构造方法定义为私有方法，这样其他处的代码就无法通过调用该类的构造方法来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例.</p>
+<p>那么，我们可以用另外一种方法实现，比如说在类加载时就初始化对象的实例，这样后面无论怎么调用类静态方法都不创建新的实例。还有一种方法，但是会牺牲部分系统性能，即在多线程访问方法时通过锁机制让线程排队访问。我们先通过在类方法上加锁来实现类的单例，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">null</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">			singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<p>这是真正管理Spring Boot应用里面所依赖的版本<br>Spring Boot的版本仲裁中心；<br>以后我们导入依赖默认是不需要写版本；<br>（没有在dependencies里面管理的依赖自然需要声明版本号）</p>
-<h2 id="启动器"><a href="#启动器" class="headerlink" title="启动器"></a>启动器</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上述方法能实现单例，而且采用的思路是延迟加载，但是执行效率比较低。</p>
+<p>还可以使用双重锁(Double CheckLock)机制来实现单例模式，一方面需要在实例上加上volatile关键字通知操作系统实现线程访问时内存屏障，然后还需要在方法中通过虚拟机实现的synchronized来同步方法访问，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton singleton = <span class="keyword">null</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">				<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">					singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>spring-boot-starter-web：</strong><br>spring-boot-starter：spring-boot场景启动器，帮我们导入了web模块正常运行所依赖的组件；<br>点击进去可以看到帮我们引入很多web相关的依赖<br>Spring Boot将所有的功能场景都抽取出来，做成一个个的starters（启动器），只需要在项目里面引入这些starter相关场景的所有依赖都会导入进来，要用什么功能就导入什么场景的启动器</p>
-<h2 id="主程序类，主入口类"><a href="#主程序类，主入口类" class="headerlink" title="主程序类，主入口类"></a>主程序类，主入口类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果不考虑服务负载问题，在多线程环境下可以预先加载类的静态实例，当虚拟机加载完成类后就会创建类的静态变量，不管用不用，先实例化再说。所有线程访问到的都是同一静态实例，也称这种方式为<strong>饿汉式</strong>，写法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>@SpringBootApplication</strong> : Spring Boot应用标注在某个类上说明这个类是SpringBoot的主配置类，SpringBoot就应该运行这个类的main方法来启动SpringBoot应用；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(excludeFilters = &#123;</span><br><span class="line">      <span class="meta">@Filter</span>(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),</span><br><span class="line">      <span class="meta">@Filter</span>(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) &#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootApplication &#123;</span><br></pre></td></tr></table></figure>
+<p>上面写法实现单例也是没有问题的，但是觉得如果我只是想调用一个类的某个静态方法，并不想生成它的实例，那有没有其他方法呢，经过各路大神的指点结合自身的总结，可以使用<strong>内部静态类</strong>来实现这个需求。<br>虚拟机在加载类的过程中一开始并不会初始化类的内部静态类。如果线程调用内部静态类时，虚拟机只会初始化一次，这样既可以实现单例，同时也是线程安全的。具体写法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">test</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> InnerClass.singleton;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>@SpringBootConfiguration : Spring Boot的配置类，标注在某个类上，表示这是一个Spring Boot的配置类</li>
-<li>@Configuration : 配置类上来标注这个注解，配置类也是容器中的一个组件@Component</li>
-<li>@EnableAutoConfiguration：开启自动配置功能</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AutoConfigurationPackage</span></span><br><span class="line"><span class="meta">@Import</span>(EnableAutoConfigurationImportSelector.class)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAutoConfiguration &#123;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>将主配置类（@SpringBootApplication标注的类）的所在包及下面所有子包里面的所有组件扫描到Spring容器；</li>
-<li>调用了<code>SpringFactoriesLoader.loadFactoryNames(EnableAutoConfiguration.class,classLoader)</code>；</li>
-<li>Spring Boot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作；</li>
-<li>以前我们需要自己配置的东西，自动配置类都帮我们；</li>
-<li>有了自动配置类，免去了我们手动编写配置注入功能组件等的工作；</li>
-<li>J2EE的整体整合解决方案和自动配置都在<code>spring-boot-autoconfigure-1.5.9.RELEASE.jar</code>；</li>
-</ul>
-<h2 id="自动配置原理"><a href="#自动配置原理" class="headerlink" title="自动配置原理"></a>自动配置原理</h2><ul>
-<li>SpringBoot启动的时候加载主配置类，开启了自动配置功能 @EnableAutoConfiguration</li>
-<li><strong>@EnableAutoConfiguration</strong> 作用：<br>  利用EnableAutoConfigurationImportSelector给容器中导入一些组件<br>  可以查看selectImports()方法的内容；<br>  <code>List&lt;String&gt; configurations = getCandidateConfigurations(annotationMetadata, attributes)</code>;获取候选的配置<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SpringFactoriesLoader.loadFactoryNames()</span><br><span class="line">扫描所有jar包类路径下  META-INF/spring.factories</span><br><span class="line">把扫描到的这些文件的内容包装成properties对象</span><br><span class="line">从properties中获取到EnableAutoConfiguration.class类（类名）对应的值，然后把他们添加在容器中</span><br></pre></td></tr></table></figure></code></pre></li>
-</ul>
-<p>将类路径下 META-INF/spring.factories 里面配置的所有EnableAutoConfiguration的值加入到了容器中</p>
-<p><strong>精髓</strong>：<br>​ 1） SpringBoot启动会加载大量的自动配置类<br>​ 2） 我们看我们需要的功能有没有SpringBoot默认写好的自动配置类；<br>​ 3） 我们再来看这个自动配置类中到底配置了哪些组件；（只要我们要用的组件有，我们就不需要再来配置了）<br>​ 4） 给容器中自动配置类添加组件的时候，会从properties类中获取某些属性。我们就可以在配置文件中指定这些属性的值；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxxAutoConfigurartion：自动配置类(给容器中添加组件)；</span><br><span class="line">xxxxProperties:封装配置文件中相关属性；</span><br></pre></td></tr></table></figure>
+<p>除了以上讲到的几种方式外，JDK自身的<strong>枚举类型</strong>本身就是单例的实现，调用者不能显式的调用构造器完成实例创建，因此很多Java规范文档推荐使用枚举来实现单例。<br>当然对于初级开发人员而言，现在的主流开发框架都提供单例/多例模式供开发者选择，这样的好处让开发者更多关注业务功能开发，而不用过多关注虚拟机内部类实例创建问题。例如spring中默认类注入就是单例的，可以根据实际情况设置scope为singleton(单例)或者prototype(多例),如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"dateUtil"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.microsoft.manage.DateUtil"</span> init-method=<span class="string">"init"</span> scope=<span class="string">"Singleton"</span>&gt;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -445,15 +412,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/Spring-Boot/" rel="tag"># Spring Boot</a>
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/java知识点/" rel="tag"># java知识点</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/14/SpringBoot-02/" rel="next" title="SpringBoot-02">
-                <i class="fa fa-chevron-left"></i> SpringBoot-02
+              <a href="/2019/08/15/Swagger/" rel="next" title="Swagger-前后端分离开发的API接口框架">
+                <i class="fa fa-chevron-left"></i> Swagger-前后端分离开发的API接口框架
               </a>
             
           </div>
@@ -461,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/14/SpringBoot-04/" rel="prev" title="SpringBoot-04">
-                SpringBoot-04 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -497,17 +458,8 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -646,23 +598,6 @@
 
         </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#POM-文件"><span class="nav-number">1.1.</span> <span class="nav-text">POM 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动器"><span class="nav-number">1.2.</span> <span class="nav-text">启动器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主程序类，主入口类"><span class="nav-number">1.3.</span> <span class="nav-text">主程序类，主入口类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动配置原理"><span class="nav-number">1.4.</span> <span class="nav-text">自动配置原理</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
     </div>
   </aside>
