@@ -71,7 +71,7 @@
 <meta property="og:site_name" content="The real world">
 <meta property="og:description" content="知识点来源牛客等总结，题目详解来自网络 TOPN问题的M个数中最大的前N个数找出十万个数据中,重复次数最多的十个数据并打印利用集合 ,找出十万个数据中,重复次数最多的十个数据并打印.先通过Hashmap存储, key为数据,value为它出现的次数.然后用优先级队列,存储类型为Map.Entry,重写比较器类,利用value进行比较.优先级队列中利用小根堆形式,只存储十个.接下来遍历其他的,如果比">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T13:08:58.418Z">
+<meta property="og:updated_time" content="2019-09-02T08:47:41.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="场景题">
 <meta name="twitter:description" content="知识点来源牛客等总结，题目详解来自网络 TOPN问题的M个数中最大的前N个数找出十万个数据中,重复次数最多的十个数据并打印利用集合 ,找出十万个数据中,重复次数最多的十个数据并打印.先通过Hashmap存储, key为数据,value为它出现的次数.然后用优先级队列,存储类型为Map.Entry,重写比较器类,利用value进行比较.优先级队列中利用小根堆形式,只存储十个.接下来遍历其他的,如果比">
@@ -284,11 +284,21 @@
                 
               
 
-              <time title="创建时间：2019-08-29 19:35:49 / 修改时间：21:08:58" itemprop="dateCreated datePublished" datetime="2019-08-29T19:35:49+08:00">2019-08-29</time>
+              <time title="创建时间：2019-08-29 19:35:49" itemprop="dateCreated datePublished" datetime="2019-08-29T19:35:49+08:00">2019-08-29</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-02 16:47:41" itemprop="dateModified" datetime="2019-09-02T16:47:41+08:00">2019-09-02</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -343,7 +353,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">1.5k</span>
             </span>
           
             <span class="post-meta-item">
@@ -370,7 +380,7 @@
 <h1 id="TOPN问题的M个数中最大的前N个数"><a href="#TOPN问题的M个数中最大的前N个数" class="headerlink" title="TOPN问题的M个数中最大的前N个数"></a>TOPN问题的M个数中最大的前N个数</h1><h2 id="找出十万个数据中-重复次数最多的十个数据并打印"><a href="#找出十万个数据中-重复次数最多的十个数据并打印" class="headerlink" title="找出十万个数据中,重复次数最多的十个数据并打印"></a>找出十万个数据中,重复次数最多的十个数据并打印</h2><p>利用集合 ,找出十万个数据中,重复次数最多的十个数据并打印.<br>先通过Hashmap存储, key为数据,value为它出现的次数.<br>然后用优先级队列,存储类型为Map.Entry,重写比较器类,利用value进行比较.<br>优先级队列中利用小根堆形式,只存储十个.<br>接下来遍历其他的,如果比小根堆堆顶的要大,对优先级队列进行remove和add操作.<br>最终,优先级队列中只会存储下来十个value最大的Entry<br>详细源码见原文链接：<a href="https://blog.csdn.net/weixin_43584947/article/details/84244440" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43584947/article/details/84244440</a></p>
 <p>类似于<strong>现在有十万个单词，请你找出重复次数最多的十个</strong><br>归结为<strong>统计一篇很长的英文文章中频次出现最高的10个单词</strong><br>思路：<br>1.读入文件，按行将文字拼接成字符串str<br>2.用正则过滤字符串中的标点，再分割成str[]<br>3.用hashmap依次统计每个单词出现的次数（可以加黑名单过滤情态动词等）<br>4.对hashmap的值排序（利用Collections的sort，重写比较器Comparator的compare）<br>5.输出hashmap前10个单词<br>详细源码见原文链接：<a href="https://blog.csdn.net/lizhentao0707/article/details/80925715" target="_blank" rel="noopener">https://blog.csdn.net/lizhentao0707/article/details/80925715</a></p>
 <p>还需要注意大文件数据的处理<br>如<strong>统计一篇超过10G的文章中每个单词出现的次数</strong><br>详细源码见原文链接：<a href="https://blog.csdn.net/xiaofeng10330111/article/details/87958174" target="_blank" rel="noopener">https://blog.csdn.net/xiaofeng10330111/article/details/87958174</a></p>
-<h1 id="面试必须掌握的海量数据问题及解决方案"><a href="#面试必须掌握的海量数据问题及解决方案" class="headerlink" title="面试必须掌握的海量数据问题及解决方案"></a>面试必须掌握的海量数据问题及解决方案</h1><p>一些总结详见链接：<a href="https://blog.csdn.net/hitxueliang/article/details/52153476" target="_blank" rel="noopener">https://blog.csdn.net/hitxueliang/article/details/52153476</a><br><a href="http://www.360doc.com/content/16/0331/22/16915_546938410.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/16/0331/22/16915_546938410.shtml</a></p>
+<h1 id="面试必须掌握的海量数据问题及解决方案"><a href="#面试必须掌握的海量数据问题及解决方案" class="headerlink" title="面试必须掌握的海量数据问题及解决方案"></a>面试必须掌握的海量数据问题及解决方案</h1><p>一些总结详见链接：<a href="https://blog.csdn.net/hitxueliang/article/details/52153476" target="_blank" rel="noopener">https://blog.csdn.net/hitxueliang/article/details/52153476</a><br><a href="http://www.360doc.com/content/16/0331/22/16915_546938410.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/16/0331/22/16915_546938410.shtml</a><br><a href="https://blog.csdn.net/v_july_v/article/category/1106578" target="_blank" rel="noopener">https://blog.csdn.net/v_july_v/article/category/1106578</a><br>其中整理比较全面的是<a href="https://blog.csdn.net/v_july_v/article/details/7382693" target="_blank" rel="noopener">https://blog.csdn.net/v_july_v/article/details/7382693</a></p>
 <h1 id="在淘宝购物，这个场景下，你会怎样来设计消息队列？"><a href="#在淘宝购物，这个场景下，你会怎样来设计消息队列？" class="headerlink" title="在淘宝购物，这个场景下，你会怎样来设计消息队列？"></a>在淘宝购物，这个场景下，你会怎样来设计消息队列？</h1><p>消息队列在电商中的应用的几个问题，比如在下单，秒杀场景中使用的疑惑。<br>详见 <a href="https://bbs.csdn.net/topics/392169691?page=1" target="_blank" rel="noopener">https://bbs.csdn.net/topics/392169691?page=1</a></p>
 <h1 id="谈一谈，分布式集群中-如何保证线程安全？"><a href="#谈一谈，分布式集群中-如何保证线程安全？" class="headerlink" title="谈一谈，分布式集群中 如何保证线程安全？"></a>谈一谈，分布式集群中 如何保证线程安全？</h1><p>链接：<a href="https://www.jianshu.com/p/8c9e98a6e936" target="_blank" rel="noopener">https://www.jianshu.com/p/8c9e98a6e936</a></p>
 <h1 id="请你设计一种方案，给每个组分配不同的IP段，并且可以快速得知某个IP是哪个组的"><a href="#请你设计一种方案，给每个组分配不同的IP段，并且可以快速得知某个IP是哪个组的" class="headerlink" title="请你设计一种方案，给每个组分配不同的IP段，并且可以快速得知某个IP是哪个组的?"></a>请你设计一种方案，给每个组分配不同的IP段，并且可以快速得知某个IP是哪个组的?</h1><p>类似于二分查找：如何快速定位IP对应的省份地址？<br>链接：<a href="https://blog.csdn.net/qq_16399991/article/details/86249224" target="_blank" rel="noopener">https://blog.csdn.net/qq_16399991/article/details/86249224</a></p>
@@ -643,12 +653,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">110k</span>
+    <span title="站点总字数">111k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:40</span>
+    <span title="站点阅读时长">1:41</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
