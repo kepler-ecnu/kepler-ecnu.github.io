@@ -77,7 +77,9 @@
 <meta property="og:image" content="https://kepler-ecnu.github.io/images/advertised_window.jpg">
 <meta property="og:image" content="https://kepler-ecnu.github.io/images/%E6%8E%A5%E6%94%B6%E7%AB%AF%E7%AA%97%E5%8F%A3.jpg">
 <meta property="og:image" content="https://kepler-ecnu.github.io/images/%E7%AA%97%E5%8F%A3.jpg">
-<meta property="og:updated_time" content="2019-08-12T04:48:14.538Z">
+<meta property="og:image" content="https://kepler-ecnu.github.io/images/DNS.jpg">
+<meta property="og:image" content="https://kepler-ecnu.github.io/images/http.png">
+<meta property="og:updated_time" content="2019-09-24T13:28:35.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java网络篇">
 <meta name="twitter:description" content="OSI七层模型   具体7层 数据格式 功能与连接方式 典型设备 协议    应用层 数据 网络服务与使用者应用程序间的一个接口 终端设备（PC、手机、平板等） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS   表示层 数据 数据表示、数据安全、数据压缩 终端设备 JPEG、MPEG、ASII   会话层 数据 会话层连接到传输层的映射；会话连接的流量控制；数据传输；会话连接恢">
@@ -291,11 +293,21 @@
                 
               
 
-              <time title="创建时间：2019-08-12 09:29:25 / 修改时间：12:48:14" itemprop="dateCreated datePublished" datetime="2019-08-12T09:29:25+08:00">2019-08-12</time>
+              <time title="创建时间：2019-08-12 09:29:25" itemprop="dateCreated datePublished" datetime="2019-08-12T09:29:25+08:00">2019-08-12</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-24 21:28:35" itemprop="dateModified" datetime="2019-09-24T21:28:35+08:00">2019-09-24</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -350,7 +362,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">8.4k</span>
+              <span title="本文字数">11k</span>
             </span>
           
             <span class="post-meta-item">
@@ -360,7 +372,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">8 分钟</span>
+              <span title="阅读时长">10 分钟</span>
             </span>
           
 
@@ -554,9 +566,7 @@
 <p>拥塞的一种表现是丢包，需要<strong>超时重传</strong>，这个时候，采用快速重传算法，将当前速度变为一半。所以速度还是在比较高的值，也没有一夜回到解放前。</p>
 <h3 id="为什么连接的时候是三次握手，关闭的时候却是四次握手"><a href="#为什么连接的时候是三次握手，关闭的时候却是四次握手" class="headerlink" title="为什么连接的时候是三次握手，关闭的时候却是四次握手"></a>为什么连接的时候是三次握手，关闭的时候却是四次握手</h3><p>答：因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四步握手。</p>
 <h3 id="为什么不直接关闭而是进入TIME-WAIT"><a href="#为什么不直接关闭而是进入TIME-WAIT" class="headerlink" title="为什么不直接关闭而是进入TIME_WAIT"></a>为什么不直接关闭而是进入TIME_WAIT</h3><p>客户端要确认服务器能收到ACK信号。(如果不确认这一点，服务器会认为客户端没有收到自己的FIN+ACK报文，所以会重发)<br>防止失效请求。(为了防止已失效的连接的请求数据包和正常的混淆)</p>
-<ul>
-<li>为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？<br>虽然按道理，四个报文都发送完毕，我们可以直接进入CLOSE状态了，但是我们必须假象网络是不可靠的，有可以最后一个ACK丢失。所以TIME_WAIT状态就是用来重发可能丢失的ACK报文。在Client发送出最后的ACK回复，但该ACK可能丢失。Server如果没有收到ACK，将不断重复发送FIN片段。所以Client不能立即关闭，它必须确认Server接收到了该ACK。Client会在发送出ACK之后进入到TIME_WAIT状态。Client会设置一个计时器，等待2MSL的时间。如果在该时间内再次收到FIN，那么Client会重发ACK并再次等待2MSL。所谓的2MSL是两倍的MSL(Maximum Segment Lifetime)。MSL指一个片段在网络中最大的存活时间，2MSL就是一个发送和一个回复所需的最大时间。如果直到2MSL，Client都没有再次收到FIN，那么Client推断ACK已经被成功接收，则结束TCP连接。</li>
-</ul>
+<h3 id="为什么TIME-WAIT状态需要经过2MSL-最大报文段生存时间-才能返回到CLOSE状态？"><a href="#为什么TIME-WAIT状态需要经过2MSL-最大报文段生存时间-才能返回到CLOSE状态？" class="headerlink" title="为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？"></a>为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？</h3><p>虽然按道理，四个报文都发送完毕，我们可以直接进入CLOSE状态了，但是我们必须假象网络是不可靠的，有可以最后一个ACK丢失。所以TIME_WAIT状态就是用来重发可能丢失的ACK报文。在Client发送出最后的ACK回复，但该ACK可能丢失。Server如果没有收到ACK，将不断重复发送FIN片段。所以Client不能立即关闭，它必须确认Server接收到了该ACK。Client会在发送出ACK之后进入到TIME_WAIT状态。Client会设置一个计时器，等待2MSL的时间。如果在该时间内再次收到FIN，那么Client会重发ACK并再次等待2MSL。所谓的2MSL是两倍的MSL(Maximum Segment Lifetime)。MSL指一个片段在网络中最大的存活时间，2MSL就是一个发送和一个回复所需的最大时间。如果直到2MSL，Client都没有再次收到FIN，那么Client推断ACK已经被成功接收，则结束TCP连接。</p>
 <h3 id="为什么不能用两次握手进行连接"><a href="#为什么不能用两次握手进行连接" class="headerlink" title="为什么不能用两次握手进行连接"></a>为什么不能用两次握手进行连接</h3><p>3次握手完成两个重要的功能，既要双方做好发送数据的准备工作(双方都知道彼此已准备好)，也要允许双方就初始序列号进行协商，这个序列号在握手过程中被发送和确认。<br>现在把三次握手改成仅需要两次握手，死锁是可能发生的。作为例子，考虑计算机S和C之间的通信，假定C给S发送一个连接请求分组，S收到了这个分组，并发送了确认应答分组。按照两次握手的协定，S认为连接已经成功地建立了，可以开始发送数据分组。可是，C在S的应答分组在传输中被丢失的情况下，将不知道S是否已准备好，不知道S建立什么样的序列号，C甚至怀疑S是否收到自己的连接请求分组。在这种情况下，C认为连接还未建立成功，将忽略S发来的任何数据分组，只等待连接确认应答分组。而S在发出的分组超时后，重复发送同样的分组。这样就形成了死锁。</p>
 <h3 id="如果已经建立了连接，但是客户端突然出现故障了怎么办"><a href="#如果已经建立了连接，但是客户端突然出现故障了怎么办" class="headerlink" title="如果已经建立了连接，但是客户端突然出现故障了怎么办"></a>如果已经建立了连接，但是客户端突然出现故障了怎么办</h3><p>TCP还设有一个<strong>保活计时器</strong>，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒钟发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。</p>
 <h3 id="TCP和UDP区别"><a href="#TCP和UDP区别" class="headerlink" title="TCP和UDP区别"></a>TCP和UDP区别</h3><ul>
@@ -678,13 +688,48 @@
 <td>56</td>
 </tr>
 </tbody></table>
-<p>** 在浏览器中输入网址之后执行会发生什么</p>
-<ul>
+<h2 id="在浏览器中输入网址之后执行会发生什么"><a href="#在浏览器中输入网址之后执行会发生什么" class="headerlink" title="在浏览器中输入网址之后执行会发生什么"></a>在浏览器中输入网址之后执行会发生什么</h2><ul>
 <li>DNS解析，找到对应ip地址</li>
 <li>客户端发起http/https请求,然后交给传输层</li>
 <li>传输层将请求分成报文段，添加目标源和端口，并随机用一个本地接口封装进报头，然后交给网络层。</li>
 <li>网络层加上双方的ip地址信息，并负责路由分发。</li>
 <li>链路层中，包通过链路层发送到路由器，通过邻居协议查找给定IP地址的MAC地址，然后发送ARP请求查找目的地址，如果得到回应后就可以使用ARP的请求应答交换的IP数据包进行传输了，然后发送IP数据包到达服务器的地址。</li>
+</ul>
+<h2 id="为什么需要DNS解析为IP地址"><a href="#为什么需要DNS解析为IP地址" class="headerlink" title="为什么需要DNS解析为IP地址"></a>为什么需要DNS解析为IP地址</h2><p>网络通讯大部分是基于TCP/IP的，而TCP/IP是基于IP地址的，所以计算机在网络上进行通讯时只能识别如“202.96.134.133”之类的IP地址，而不能认识域名。我们无法记住10个以上IP地址的网站，所以我们访问网站时，更多的是在浏览器地址栏中输入域名，就能看到所需要的页面，这是因为有一个叫“DNS服务器”的计算机自动把我们的域名“翻译”成了相应的IP地址，然后调出IP地址所对应的网页。</p>
+<h2 id="DNS查询过程"><a href="#DNS查询过程" class="headerlink" title="DNS查询过程"></a>DNS查询过程</h2><p><img src="/images/DNS.jpg" alt><br>1、在浏览器中输入 <a href="http://www.qq.com" target="_blank" rel="noopener">www.qq.com</a> 域名，操作系统会先检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。</p>
+<p>2、如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析。</p>
+<p>3、如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找TCP/IP参数中设置的首选DNS服务器，在此我们叫它本地DNS服务器，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性。</p>
+<p>4、如果要查询的域名，不由本地DNS服务器区域解析，但该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析，此解析不具有权威性。</p>
+<p>5、如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置（是否设置转发器）进行查询，如果未用转发模式，本地DNS就把请求发至(13台)根DNS，根DNS服务器收到请求后会判断这个域名(.com)是谁来授权管理，并会返回一个负责该顶级域名服务器的一个IP。本地DNS服务器收到IP信息后，将会联系负责.com域的这台服务器。这台负责.com域的服务器收到请求后，如果自己无法解析，它就会找一个管理.com域的下一级DNS服务器地址 (<a href="http://qq.com" target="_blank" rel="noopener">http://qq.com</a>) 给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找 <a href="http://qq.com" target="_blank" rel="noopener">http://qq.com</a> 域服务器，重复上面的动作，进行查询，直至找到 <a href="http://www.qq.com" target="_blank" rel="noopener">www.qq.com</a> 主机。</p>
+<p>6、如果用的是转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机。</p>
+<p>从客户端到本地DNS服务器是属于递归查询，而DNS服务器之间就是的交互查询就是迭代查询。</p>
+<h2 id="Http-和-Https"><a href="#Http-和-Https" class="headerlink" title="Http 和 Https"></a>Http 和 Https</h2><h3 id="Http和Https的基本概念"><a href="#Http和Https的基本概念" class="headerlink" title="Http和Https的基本概念"></a>Http和Https的基本概念</h3><ul>
+<li>Http：超文本传输协议（Http，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络协议。设计Http最初的目的是为了提供一种发布和接收HTML页面的方法。它可以使浏览器更加高效。Http协议是以<strong>明文方式</strong>发送信息的，如果黑客截取了Web浏览器和服务器之间的传输报文，就可以直接获得其中的信息。</li>
+<li>Https：是以安全为目标的Http通道，是Http的安全版。Https的安全基础是SSL。SSL协议位于TCP/IP协议与各种应用层协议之间，为数据通讯提供安全支持。SSL协议可分为两层：SSL记录协议（SSL Record Protocol），它建立在可靠的传输协议（如TCP）之上，为高层协议提供数据封装、压缩、加密等基本功能的支持。SSL握手协议（SSL Handshake Protocol），它建立在SSL记录协议之上，用于在实际的数据传输开始前，通讯双方进行身份认证、协商加密算法、交换加密密钥等。</li>
+</ul>
+<h3 id="Http-和-Https-的区别"><a href="#Http-和-Https-的区别" class="headerlink" title="Http 和 Https 的区别"></a>Http 和 Https 的区别</h3><p>1、Https协议需要到CA申请证书，一般免费证书较少，因而需要一定费用。(原来网易官网是Http，而网易邮箱是Https。)</p>
+<p>2、Http是超文本传输协议，信息是明文传输，Https则是具有安全性的SSL加密传输协议。</p>
+<p>3、Http和Https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+<p>4、Http的连接很简单，是<strong>无状态的</strong>。Https协议是由SSL+Http协议构建的可进行加密传输、身份认证的网络协议，比Http协议安全。(无状态的意思是其数据包的发送、传输和接收都是相互独立的。无连接的意思是指通信双方都不长久的维持对方的任何信息。)</p>
+<h3 id="Https的优点"><a href="#Https的优点" class="headerlink" title="Https的优点"></a>Https的优点</h3><p>1、使用Https协议可认证用户和服务器，确保数据发送到正确的客户机和服务器。</p>
+<p>2、Https协议是由SSL+Http协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全，可防止数据在传输过程中不被窃取、修改，确保数据的完整性。</p>
+<p>3、Https是现行架构下最安全的解决方案，虽然不是绝对安全，但它大幅增加了中间人攻击的成本。</p>
+<h3 id="Https的缺点（对比优点）"><a href="#Https的缺点（对比优点）" class="headerlink" title="Https的缺点（对比优点）"></a>Https的缺点（对比优点）</h3><p>1、Https协议握手阶段比较费时，会使页面的加载时间延长近。</p>
+<p>2、Https连接缓存不如Http高效，会增加数据开销，甚至已有的安全措施也会因此而受到影响；</p>
+<p>3、SSL证书通常需要绑定IP，不能在同一IP上绑定多个域名，IPv4资源不可能支撑这个消耗。</p>
+<p>4、Https协议的加密范围也比较有限。最关键的，SSL证书的信用链体系并不安全，特别是在某些国家可以控制CA根证书的情况下，中间人攻击一样可行。</p>
+<h3 id="HTTP1-0-1-1-2-0区别"><a href="#HTTP1-0-1-1-2-0区别" class="headerlink" title="HTTP1.0/1.1/2.0区别"></a>HTTP1.0/1.1/2.0区别</h3><ul>
+<li>HTTP1.1默认使用长连接，可有效减少TCP的三次握手开销。</li>
+<li>HTTP 1.1支持只发送header信息(不带任何body信息)，如果服务器认为客户端有权限请求服务器，则返回100，否则返回401。客户端如果接受到100，才开始把请求body发送到服务器。这样当服务器返回401的时候，客户端就可以不用发送请求body了，节约了带宽。另外HTTP还支持传送内容的一部分。这样当客户端已经有一部分的资源后，只需要跟服务器请求另外的部分资源即可。这是支持文件断点续传的基础。</li>
+<li>HTTP1.0是没有host域的，HTTP1.1才支持这个参数。</li>
+<li>HTTP2.0使用多路复用技术(Multiplexing),多路复用允许同时通过单一的 HTTP/2 连接发起多重的请求-响应消息。<br>“HTTP1.1在同一时间对于同一个域名的请求数量有限制，超过限制就会阻塞请求”。多路复用底层采用 “增加二进制分帧层” 的方法，使得不改变原来的语义、首部字段的情况下提高传输性能，降低延迟。<br>二进制分帧将所有传输信息分割为更小的帧，用二进制进行编码，多个请求都在同一个TCP连接上完成，可以承载任意数量的双向数据流。HTTP/2更有效的使用TCP连接，得到性能上的提升。</li>
+<li>HTTP/2新增首部压缩（Header Compression）:采用HPACK算法</li>
+<li>HTTP/2新增服务端推送（Header Compression）</li>
+</ul>
+<p>简言之：</p>
+<ul>
+<li>HTTP1.0与HTTP 1.1的主要区别<br>  长连接<br>  节约带宽<br>  HOST域</li>
+<li>HTTP1.1与HTTP 2.0的主要区别<br>  多路复用<br>  二进制分帧<br>  首部压缩<br>  服务器推送<br><img src="/images/http.png" alt></li>
 </ul>
 <h2 id="IP地址的分类"><a href="#IP地址的分类" class="headerlink" title="IP地址的分类"></a>IP地址的分类</h2><p>A类地址：以0开头，第一个字节范围：0 ~ 127（1.0.0.0 - 126.255.255.255)；<br>B类地址：以10开头，第一个字节范围：128 ~ 191（128.0.0.0 - 191.255.255.255);<br>C类地址：以110开头，第一个字节范围：192 ~ 223（192.0.0.0 - 223.255.255.255);<br>内部(私有)地址：10.0.0.0 — 10.255.255.255， 172.16.0.0 — 172.31.255.255， 192.168.0.0—192.168.255.255。</p>
 <h2 id="ARP是什么协议，简单语言解释一下工作原理"><a href="#ARP是什么协议，简单语言解释一下工作原理" class="headerlink" title="ARP是什么协议，简单语言解释一下工作原理"></a>ARP是什么协议，简单语言解释一下工作原理</h2><ol>
@@ -943,7 +988,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">1.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP模型"><span class="nav-number">2.</span> <span class="nav-text">TCP/IP模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下TTL"><span class="nav-number">3.</span> <span class="nav-text">说一下TTL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ping和tracert命令用的什么协议"><span class="nav-number">4.</span> <span class="nav-text">ping和tracert命令用的什么协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU是什么"><span class="nav-number">5.</span> <span class="nav-text">MTU是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP报文"><span class="nav-number">6.</span> <span class="nav-text">TCP报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三次握手过程"><span class="nav-number">6.1.</span> <span class="nav-text">三次握手过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四次挥手过程"><span class="nav-number">6.2.</span> <span class="nav-text">四次挥手过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#累计确认（TCP如何实现可靠传输）"><span class="nav-number">6.3.</span> <span class="nav-text">累计确认（TCP如何实现可靠传输）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序问题和丢包问题"><span class="nav-number">6.4.</span> <span class="nav-text">顺序问题和丢包问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流量控制的问题（滑动窗口机制）"><span class="nav-number">6.5.</span> <span class="nav-text">流量控制的问题（滑动窗口机制）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拥塞控制的问题（滑动窗口机制）"><span class="nav-number">6.6.</span> <span class="nav-text">拥塞控制的问题（滑动窗口机制）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么连接的时候是三次握手，关闭的时候却是四次握手"><span class="nav-number">6.7.</span> <span class="nav-text">为什么连接的时候是三次握手，关闭的时候却是四次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不直接关闭而是进入TIME-WAIT"><span class="nav-number">6.8.</span> <span class="nav-text">为什么不直接关闭而是进入TIME_WAIT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不能用两次握手进行连接"><span class="nav-number">6.9.</span> <span class="nav-text">为什么不能用两次握手进行连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果已经建立了连接，但是客户端突然出现故障了怎么办"><span class="nav-number">6.10.</span> <span class="nav-text">如果已经建立了连接，但是客户端突然出现故障了怎么办</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP和UDP区别"><span class="nav-number">6.11.</span> <span class="nav-text">TCP和UDP区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-为什么是可靠连接"><span class="nav-number">6.12.</span> <span class="nav-text">TCP 为什么是可靠连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-响应码-301-和-302-代表的是什么？有什么区别？"><span class="nav-number">7.</span> <span class="nav-text">http 响应码 301 和 302 代表的是什么？有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forward-和-redirect-的区别"><span class="nav-number">8.</span> <span class="nav-text">forward 和 redirect 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-tcp-粘包是怎么产生的"><span class="nav-number">9.</span> <span class="nav-text">说一下 tcp 粘包是怎么产生的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-和-post-请求有哪些区别"><span class="nav-number">10.</span> <span class="nav-text">get 和 post 请求有哪些区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现跨域"><span class="nav-number">11.</span> <span class="nav-text">如何实现跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用端口及其对应服务"><span class="nav-number">12.</span> <span class="nav-text">常用端口及其对应服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址的分类"><span class="nav-number">13.</span> <span class="nav-text">IP地址的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARP是什么协议，简单语言解释一下工作原理"><span class="nav-number">14.</span> <span class="nav-text">ARP是什么协议，简单语言解释一下工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP协议有什么作用"><span class="nav-number">15.</span> <span class="nav-text">DHCP协议有什么作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子网掩码的作用"><span class="nav-number">16.</span> <span class="nav-text">子网掩码的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过IP和子网掩码计算网络号-笔试题"><span class="nav-number">17.</span> <span class="nav-text">通过IP和子网掩码计算网络号(笔试题)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过IP和子网掩码计算主机号-笔试题"><span class="nav-number">18.</span> <span class="nav-text">通过IP和子网掩码计算主机号(笔试题)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">1.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP模型"><span class="nav-number">2.</span> <span class="nav-text">TCP/IP模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下TTL"><span class="nav-number">3.</span> <span class="nav-text">说一下TTL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ping和tracert命令用的什么协议"><span class="nav-number">4.</span> <span class="nav-text">ping和tracert命令用的什么协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU是什么"><span class="nav-number">5.</span> <span class="nav-text">MTU是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP报文"><span class="nav-number">6.</span> <span class="nav-text">TCP报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三次握手过程"><span class="nav-number">6.1.</span> <span class="nav-text">三次握手过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四次挥手过程"><span class="nav-number">6.2.</span> <span class="nav-text">四次挥手过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#累计确认（TCP如何实现可靠传输）"><span class="nav-number">6.3.</span> <span class="nav-text">累计确认（TCP如何实现可靠传输）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序问题和丢包问题"><span class="nav-number">6.4.</span> <span class="nav-text">顺序问题和丢包问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流量控制的问题（滑动窗口机制）"><span class="nav-number">6.5.</span> <span class="nav-text">流量控制的问题（滑动窗口机制）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拥塞控制的问题（滑动窗口机制）"><span class="nav-number">6.6.</span> <span class="nav-text">拥塞控制的问题（滑动窗口机制）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么连接的时候是三次握手，关闭的时候却是四次握手"><span class="nav-number">6.7.</span> <span class="nav-text">为什么连接的时候是三次握手，关闭的时候却是四次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不直接关闭而是进入TIME-WAIT"><span class="nav-number">6.8.</span> <span class="nav-text">为什么不直接关闭而是进入TIME_WAIT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么TIME-WAIT状态需要经过2MSL-最大报文段生存时间-才能返回到CLOSE状态？"><span class="nav-number">6.9.</span> <span class="nav-text">为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不能用两次握手进行连接"><span class="nav-number">6.10.</span> <span class="nav-text">为什么不能用两次握手进行连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果已经建立了连接，但是客户端突然出现故障了怎么办"><span class="nav-number">6.11.</span> <span class="nav-text">如果已经建立了连接，但是客户端突然出现故障了怎么办</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP和UDP区别"><span class="nav-number">6.12.</span> <span class="nav-text">TCP和UDP区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-为什么是可靠连接"><span class="nav-number">6.13.</span> <span class="nav-text">TCP 为什么是可靠连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-响应码-301-和-302-代表的是什么？有什么区别？"><span class="nav-number">7.</span> <span class="nav-text">http 响应码 301 和 302 代表的是什么？有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forward-和-redirect-的区别"><span class="nav-number">8.</span> <span class="nav-text">forward 和 redirect 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说一下-tcp-粘包是怎么产生的"><span class="nav-number">9.</span> <span class="nav-text">说一下 tcp 粘包是怎么产生的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-和-post-请求有哪些区别"><span class="nav-number">10.</span> <span class="nav-text">get 和 post 请求有哪些区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现跨域"><span class="nav-number">11.</span> <span class="nav-text">如何实现跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用端口及其对应服务"><span class="nav-number">12.</span> <span class="nav-text">常用端口及其对应服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在浏览器中输入网址之后执行会发生什么"><span class="nav-number">13.</span> <span class="nav-text">在浏览器中输入网址之后执行会发生什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要DNS解析为IP地址"><span class="nav-number">14.</span> <span class="nav-text">为什么需要DNS解析为IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS查询过程"><span class="nav-number">15.</span> <span class="nav-text">DNS查询过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Http-和-Https"><span class="nav-number">16.</span> <span class="nav-text">Http 和 Https</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Http和Https的基本概念"><span class="nav-number">16.1.</span> <span class="nav-text">Http和Https的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Http-和-Https-的区别"><span class="nav-number">16.2.</span> <span class="nav-text">Http 和 Https 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Https的优点"><span class="nav-number">16.3.</span> <span class="nav-text">Https的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Https的缺点（对比优点）"><span class="nav-number">16.4.</span> <span class="nav-text">Https的缺点（对比优点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP1-0-1-1-2-0区别"><span class="nav-number">16.5.</span> <span class="nav-text">HTTP1.0/1.1/2.0区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址的分类"><span class="nav-number">17.</span> <span class="nav-text">IP地址的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARP是什么协议，简单语言解释一下工作原理"><span class="nav-number">18.</span> <span class="nav-text">ARP是什么协议，简单语言解释一下工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP协议有什么作用"><span class="nav-number">19.</span> <span class="nav-text">DHCP协议有什么作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子网掩码的作用"><span class="nav-number">20.</span> <span class="nav-text">子网掩码的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过IP和子网掩码计算网络号-笔试题"><span class="nav-number">21.</span> <span class="nav-text">通过IP和子网掩码计算网络号(笔试题)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过IP和子网掩码计算主机号-笔试题"><span class="nav-number">22.</span> <span class="nav-text">通过IP和子网掩码计算主机号(笔试题)</span></a></li></ol></div>
             
 
           </div>
@@ -970,12 +1015,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">111k</span>
+    <span title="站点总字数">114k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:41</span>
+    <span title="站点阅读时长">1:43</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
