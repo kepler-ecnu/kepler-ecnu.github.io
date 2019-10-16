@@ -76,7 +76,7 @@
 <meta property="og:image" content="https://kepler-ecnu.github.io/images/hash.png">
 <meta property="og:image" content="https://kepler-ecnu.github.io/images/Btree.png">
 <meta property="og:image" content="https://kepler-ecnu.github.io/images/B+tree.png">
-<meta property="og:updated_time" content="2019-08-30T08:47:17.329Z">
+<meta property="og:updated_time" content="2019-10-15T02:46:53.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java数据库篇">
 <meta name="twitter:description" content="MySQL主键 超键 候选键 外键 主键数据库表中存储数据对象允以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null） 超键在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。 候选键是最小超键，即没有冗余元素的超键 外键在一个表中存在的另一个表的主键称为此表">
@@ -303,7 +303,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-30 16:47:17" itemprop="dateModified" datetime="2019-08-30T16:47:17+08:00">2019-08-30</time>
+                <time title="修改时间：2019-10-15 10:46:53" itemprop="dateModified" datetime="2019-10-15T10:46:53+08:00">2019-10-15</time>
               </span>
             
           
@@ -359,7 +359,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">20k</span>
+              <span title="本文字数">21k</span>
             </span>
           
             <span class="post-meta-item">
@@ -410,7 +410,7 @@
 <li>悲观锁：每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻止，直到这个锁被释放。</li>
 </ul>
 <p>数据库的乐观锁需要自己实现，在表里面添加一个 version 字段，每次修改成功值加 1，这样每次修改的时候先对比一下，自己拥有的 version 和数据库现在的 version 是否一致，如果不一致就不修改，这样就实现了乐观锁。</p>
-<h2 id="数据库事务的四个特性及含义"><a href="#数据库事务的四个特性及含义" class="headerlink" title="数据库事务的四个特性及含义"></a>数据库事务的四个特性及含义</h2><p>一个逻辑工作单元要成为事务，就必须满足ACID属性<br>A：原子性（Atomicity）<br>    事务中的操作要么都不做，要么就全做<br>C：一致性（Consistency）<br>    事务执行的结果必须是从数据库从一个一致性状态转换到另一个一致性状态。<br>I：隔离性（Isolation）<br>    一个事务的执行不能被其他事务干扰<br>D：持久性（Durability）<br>    一个事务一旦提交，它对数据库中数据的改变就应该是永久性的</p>
+<h2 id="数据库事务的四个特性及含义"><a href="#数据库事务的四个特性及含义" class="headerlink" title="数据库事务的四个特性及含义"></a>数据库事务的四个特性及含义</h2><p>一个逻辑工作单元要成为事务，就必须满足ACID属性<br>A：原子性（Atomicity）<br>    事务中的操作要么都不做，要么就全做<br>C：一致性（Consistency）<br>    事务执行的结果必须是从数据库从一个一致性状态转换到另一个一致性状态。<br>I：隔离性（Isolation）<br>    隔离状态执行事务，使它们好像是系统在给定时间内执行的唯一操作。如果有两个事务，运行在相同的时间内，执行相同的功能，事务的隔离性将确保每一事务在系统中认为只有该事务在使用系统。这种属性有时称为串行化，为了防止事务操作间的混淆，必须串行化或序列化请求，使得在同一时间仅有一个请求用于同一数据。<br>D：持久性（Durability）<br>    一个事务一旦提交，它对数据库中数据的改变就应该是永久性的</p>
 <h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><ol>
 <li>读未提交（Read Uncommitted)<br> 引发脏读（读取了未提交的数据）</li>
 <li>读已提交（Read Committed)<br> 这是大多数数据库系统默认的隔离级别，但不是MySQL默认的<br> 只能看见已经提交事务所做的改变<br> 引发不可重复读，不可重读读意味着我们同一事务执行完全相同的select语句时可能看到不一样的结果。<br>导致这种情况的原因可能有：<pre><code>(1)有一个交叉的事务有新的commit，导致了数据的改变;
@@ -861,7 +861,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -890,7 +890,9 @@
         
           
         
-        <span class="site-state-item-count">7</span>
+          
+        
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -923,7 +925,9 @@
         
           
         
-        <span class="site-state-item-count">9</span>
+          
+        
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1026,12 +1030,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">129k</span>
+    <span title="站点总字数">134k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:57</span>
+    <span title="站点阅读时长">2:02</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
